@@ -1,5 +1,5 @@
 ---
-title: "MyLabJournal"
+title: "My Practice Space
 output: html_document
 ---
 
