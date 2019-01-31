@@ -1,5 +1,5 @@
 ---
-title: "My Practice Space
+title: "My Practice Space"
 output: html_document
 ---
 
@@ -8,18 +8,15 @@ output: html_document
   display: none;
 }
 
-#getting-started img {
-  margin-right: 10px;
-}
-
 </style>
 
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
-# **My Lab Journal**
 
-This is a template example for lab journaling. Students in Matt Crump's Human Cognition and Performance Lab will use this template to learn R, and other things. Students can replace this text with more fun things. People not in my lab can use this too.
+# **My Practice Space**
+
+This is a template **example** for lab journaling. Students in Matt Crump's Human Cognition and Performance Lab will use this template to learn R, and other things. Students can replace this text with more fun things. People not in my lab can use this too.
 
 ## How to use
 
