@@ -1,5 +1,5 @@
 ---
-title: "Journal"
+title: "R Basics"
 output:
   html_document:
     toc: true
@@ -13,6 +13,61 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
 ```
+
+
+# problem 1
+
+Control-alt-i to open space for R code block
+
+
+
+```{r}
+1+1
+5-4 
+3+4
+6*2
+2*2
+4/2
+6/2
+500/25
+
+```
+
+```{r}
+(5+5)/5
+5+5/5
+```
+
+
+
+
+
+# problem 2
+
+To create a variable use <- where the value on left side of arrow is the converted variable and the value on the right side of arrow is the new value given
+
+
+```{r, eval=FALSE}
+1<-Annie
+1 <- "Annie"
+a <- Annie
+```
+
+```{r}
+annie <- 1
+a <- annie
+a
+annie
+```
+To create a vector use <-c with brackets (numbers only need commas between while letters require quotation marks surrounding each letter)
+
+
+```{r}
+vector <-c(1, 2, 3, 4)
+vector <-c ("a", "b")
+```
+
+
 
 IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.
 

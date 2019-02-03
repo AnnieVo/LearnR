@@ -11,7 +11,7 @@
 
 
 
-<title>Journal</title>
+<title>R Basics</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -397,16 +397,56 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Journal</h1>
+<h1 class="title toc-ignore">R Basics</h1>
 
 </div>
 
 
+<div id="problem-1" class="section level1">
+<h1>problem 1</h1>
+<p>Control-alt-i to open space for R code block</p>
+<pre class="r"><code>1+1</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>5-4 </code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>3+4</code></pre>
+<pre><code>## [1] 7</code></pre>
+<pre class="r"><code>6*2</code></pre>
+<pre><code>## [1] 12</code></pre>
+<pre class="r"><code>2*2</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>4/2</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>6/2</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>500/25</code></pre>
+<pre><code>## [1] 20</code></pre>
+<pre class="r"><code>(5+5)/5</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>5+5/5</code></pre>
+<pre><code>## [1] 6</code></pre>
+</div>
+<div id="problem-2" class="section level1">
+<h1>problem 2</h1>
+<p>To create a variable use &lt;- where the value on left side of arrow is the converted variable and the value on the right side of arrow is the new value given</p>
+<pre class="r"><code>1&lt;-Annie
+1 &lt;- &quot;Annie&quot;
+a &lt;- Annie</code></pre>
+<pre class="r"><code>annie &lt;- 1
+a &lt;- annie
+a</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>annie</code></pre>
+<pre><code>## [1] 1</code></pre>
+<p>To create a vector use &lt;-c with brackets (numbers only need commas between while letters require quotation marks surrounding each letter)</p>
+<pre class="r"><code>vector &lt;-c(1, 2, 3, 4)
+vector &lt;-c (&quot;a&quot;, &quot;b&quot;)</code></pre>
 <p>IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.</p>
 <p>This is an .Rmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a # in front of your text, it will create a top level-header.</p>
+</div>
 <div id="my-first-post" class="section level1">
 <h1>My first post</h1>
-<p>2018 | 7 | 23 Last compiled: 2019-01-31</p>
+<p>2018 | 7 | 23 Last compiled: 2019-02-03</p>
 <p>Notice that whatever you define as a top level header, automatically gets put into the table of contents bar on the left.</p>
 <div id="second-level-header" class="section level2">
 <h2>Second level header</h2>
@@ -419,7 +459,7 @@ div.tocify {
 </div>
 <div id="my-second-post-note-the-order" class="section level1">
 <h1>My second post (note the order)</h1>
-<p>2018 | 7 | 23 Last compiled: 2019-01-31</p>
+<p>2018 | 7 | 23 Last compiled: 2019-02-03</p>
 <p>I’m writing this tutorial going from the top down. And, this is how it will be printed. So, notice the second post is second in the list. If you want your most recent post to be at the top, then make a new post starting at the top. If you want the oldest first, do, then keep adding to the bottom</p>
 </div>
 <div id="adding-r-stuff" class="section level1">
@@ -428,7 +468,7 @@ div.tocify {
 <p>So, let’s say you are learning how to make a histogram in R. For example, maybe you want to sample 100 numbers from a normal distribution with mean = 0, and standard deviation =1, and then you want to plot a histogram. You can do this right here by using an r code block, like this:</p>
 <pre class="r"><code>samples &lt;- rnorm(100, mean=0, sd=1)
 hist(samples)</code></pre>
-<p><img src="Journal_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="Journal_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>When you knit this R Markdown document, you will see that the histogram is printed to the page, along with the R code. This document can be set up to hide the R code in the webpage, just delete the comment (hashtag), from the cold folding option in the yaml header up top. For purposes of letting yourself see the code, and me see the code, best to keep it the way that it is. You learn all of these things and more can be customized in each R code block.</p>
 </div>
 <div id="the-big-idea" class="section level1">
@@ -441,7 +481,7 @@ hist(samples)</code></pre>
 <p>I wrote an <a href="https://crumplab.github.io/programmingforpsych/">introductory programming book that introduces R</a>, and gives some <a href="https://crumplab.github.io/programmingforpsych/programming-challenges-i-learning-the-fundamentals.html">concrete problems for you to solve</a>.</p>
 <p>To get the hang of journaling and solving the problems to learn programming, my suggestion is that you use this .Rmd file to solve the problems. It would look like this:</p>
 </div>
-<div id="problem-1" class="section level1">
+<div id="problem-1-1" class="section level1">
 <h1>Problem 1</h1>
 <p>Do simple math with numbers, addition, subtraction, multiplication, division</p>
 <pre class="r"><code>1+2</code></pre>
@@ -453,7 +493,7 @@ hist(samples)</code></pre>
 <pre class="r"><code>(1+6+4)/5</code></pre>
 <pre><code>## [1] 2.2</code></pre>
 </div>
-<div id="problem-2" class="section level1">
+<div id="problem-2-1" class="section level1">
 <h1>Problem 2</h1>
 <p>Put numbers into variables, do simple math on the variables</p>
 <pre class="r"><code>a&lt;-1
