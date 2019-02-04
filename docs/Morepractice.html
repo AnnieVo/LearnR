@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>More Practice</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MyLabJournal</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Journal.html">Journal</a>
+</li>
+<li>
+  <a href="Morepractice.html">More Practice</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">More Practice</h1>
+
+</div>
+
+
+<div id="practice-problems" class="section level1">
+<h1>Practice Problems</h1>
+<p>Write code that will place the numbers 1 to 100 separately into a variable using for loop. Then, again using the seq function.</p>
+<pre class="r"><code>x&lt;-c(1:100)
+for (i in 1:100) {
+  print (i)
+  
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10
+## [1] 11
+## [1] 12
+## [1] 13
+## [1] 14
+## [1] 15
+## [1] 16
+## [1] 17
+## [1] 18
+## [1] 19
+## [1] 20
+## [1] 21
+## [1] 22
+## [1] 23
+## [1] 24
+## [1] 25
+## [1] 26
+## [1] 27
+## [1] 28
+## [1] 29
+## [1] 30
+## [1] 31
+## [1] 32
+## [1] 33
+## [1] 34
+## [1] 35
+## [1] 36
+## [1] 37
+## [1] 38
+## [1] 39
+## [1] 40
+## [1] 41
+## [1] 42
+## [1] 43
+## [1] 44
+## [1] 45
+## [1] 46
+## [1] 47
+## [1] 48
+## [1] 49
+## [1] 50
+## [1] 51
+## [1] 52
+## [1] 53
+## [1] 54
+## [1] 55
+## [1] 56
+## [1] 57
+## [1] 58
+## [1] 59
+## [1] 60
+## [1] 61
+## [1] 62
+## [1] 63
+## [1] 64
+## [1] 65
+## [1] 66
+## [1] 67
+## [1] 68
+## [1] 69
+## [1] 70
+## [1] 71
+## [1] 72
+## [1] 73
+## [1] 74
+## [1] 75
+## [1] 76
+## [1] 77
+## [1] 78
+## [1] 79
+## [1] 80
+## [1] 81
+## [1] 82
+## [1] 83
+## [1] 84
+## [1] 85
+## [1] 86
+## [1] 87
+## [1] 88
+## [1] 89
+## [1] 90
+## [1] 91
+## [1] 92
+## [1] 93
+## [1] 94
+## [1] 95
+## [1] 96
+## [1] 97
+## [1] 98
+## [1] 99
+## [1] 100</code></pre>
+<p>Find the sum of all the integer numbers from 1 to 100</p>
+<pre class="r"><code>sum(seq(1,100))</code></pre>
+<pre><code>## [1] 5050</code></pre>
+<p>List all of the odd numbers from 1 to 100</p>
+<pre class="r"><code>a&lt;-length(1:99)
+for (i in 1:99){
+  if(!i %%2){
+    next
+  }
+  print(i)
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 3
+## [1] 5
+## [1] 7
+## [1] 9
+## [1] 11
+## [1] 13
+## [1] 15
+## [1] 17
+## [1] 19
+## [1] 21
+## [1] 23
+## [1] 25
+## [1] 27
+## [1] 29
+## [1] 31
+## [1] 33
+## [1] 35
+## [1] 37
+## [1] 39
+## [1] 41
+## [1] 43
+## [1] 45
+## [1] 47
+## [1] 49
+## [1] 51
+## [1] 53
+## [1] 55
+## [1] 57
+## [1] 59
+## [1] 61
+## [1] 63
+## [1] 65
+## [1] 67
+## [1] 69
+## [1] 71
+## [1] 73
+## [1] 75
+## [1] 77
+## [1] 79
+## [1] 81
+## [1] 83
+## [1] 85
+## [1] 87
+## [1] 89
+## [1] 91
+## [1] 93
+## [1] 95
+## [1] 97
+## [1] 99</code></pre>
+<p>List all of the prime numbers from 1 to 1000</p>
+<p>Generate 100 random numbers</p>
+<pre class="r"><code>a&lt;-(1:100)
+runif(a, min=1, max=100)</code></pre>
+<pre><code>##   [1] 88.807656 59.195697 57.138874  9.915604 68.646867  8.746675  2.450535
+##   [8] 91.796997 57.551087 99.908016 36.825902 19.461919 58.108448 27.823489
+##  [15] 63.547690 98.922165 52.125348 83.435608 64.452834 99.825065 47.426260
+##  [22] 17.493141 98.265845 75.239883 75.777454 81.475240 92.648873 32.150220
+##  [29] 74.579766  7.679124  6.141561 14.155999 78.561762 49.914775 22.645829
+##  [36] 71.442906 88.342176 99.251982 12.649827 83.535189 87.182758 37.777095
+##  [43] 22.215156 80.349986 14.087531 37.142515 22.556567 46.389608 67.579311
+##  [50] 71.155315 48.623741 11.541166 39.183853 35.184725 26.830427 86.892402
+##  [57] 98.517782 31.675356 27.456252 72.329654 86.517043 75.164700 78.323301
+##  [64] 98.934511 63.035468 59.984827 15.418572 55.792681 46.682877 15.617859
+##  [71] 82.450246 61.137376 41.588863 14.978262 48.642133 28.426310 25.632435
+##  [78] 17.948219 98.745829 34.251367 97.472251 97.772488 53.563211  4.452223
+##  [85] 53.301475 23.693955 26.632591 38.024209 55.864370 53.264860 54.699998
+##  [92] 28.177789 56.205468 90.152202 49.100665 42.930267 99.396052 53.500977
+##  [99] 37.554900 20.152960</code></pre>
+<p>Generate 100 random numbers within a specific range</p>
+<pre class="r"><code>a&lt;-(1:100)
+runif(a, min=1, max=500)</code></pre>
+<pre><code>##   [1] 259.617570 333.716728  14.759616 317.129216 442.207431 162.710539
+##   [7] 318.837879   9.264372 230.406769 206.844154  92.168617 415.276505
+##  [13] 338.062497 379.610801 213.658468 241.392613 161.730668   1.591816
+##  [19] 272.491954  10.720885 483.870250 495.212383  54.656614 141.527200
+##  [25]  58.306996  29.153159 295.559656 350.661342 390.451870 338.016125
+##  [31] 126.954779 329.923906 439.359696 416.866849 120.764768 342.046145
+##  [37]  12.822396 467.967036  40.591039 216.467329  25.730709 384.719024
+##  [43]  97.830374 340.597779 406.664689 450.919194 420.374918 317.962744
+##  [49] 173.809091  63.858008 477.530023  62.933555  82.750064 110.823937
+##  [55] 338.327517 275.510251   2.569613 446.630109 141.585071 349.363529
+##  [61] 279.486117  14.441920 427.607660 461.686787 490.146219 337.026504
+##  [67] 208.185859 406.302656 371.720140  97.330947 349.915225 281.616806
+##  [73] 207.910614  26.568723 312.189568 140.783488 276.907409 361.769953
+##  [79] 341.189555 350.519164 148.697281 224.541122  41.240702 356.531389
+##  [85] 392.808628  98.315531 313.947804 277.879343 229.382346  10.649972
+##  [91] 397.596947 298.795992  54.332844  98.973322 282.583205  51.113744
+##  [97] 121.945316 302.297814 331.261729 487.848330</code></pre>
+<p>Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation</p>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

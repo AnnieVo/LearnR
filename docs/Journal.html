@@ -383,6 +383,9 @@ div.tocify {
   <a href="Journal.html">Journal</a>
 </li>
 <li>
+  <a href="Morepractice.html">More Practice</a>
+</li>
+<li>
   <a href="Links.html">Links</a>
 </li>
       </ul>
@@ -440,13 +443,93 @@ a</code></pre>
 <pre><code>## [1] 1</code></pre>
 <p>To create a vector use &lt;-c with brackets (numbers only need commas between while letters require quotation marks surrounding each letter)</p>
 <pre class="r"><code>vector &lt;-c(1, 2, 3, 4)
-vector &lt;-c (&quot;a&quot;, &quot;b&quot;)</code></pre>
-<p>IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.</p>
-<p>This is an .Rmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a # in front of your text, it will create a top level-header.</p>
+vector &lt;-c (&quot;a&quot;, &quot;b&quot;)
+
+
+
+use : to list a sequence of numbers. To access &quot;Help&quot; quickly then type ? </code></pre>
+<pre class="r"><code>x&lt;-c(0:10,50)
+mean(x)</code></pre>
+<pre><code>## [1] 8.75</code></pre>
+<blockquote>
+<p>x&lt;-c(0:10, 50) x</p>
+</blockquote>
+</div>
+<div id="variables" class="section level1">
+<h1>variables</h1>
+<pre class="r"><code>a&lt;-1
+b&lt;-&quot;hello world&quot;
+c&lt;-&quot;3&quot;
+class(a)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>class (c)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>vector&lt;-c(1,2,3,4,5,6,5,7,6, 1000)
+vector[7]</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="r"><code>vector [3:6]</code></pre>
+<pre><code>## [1] 3 4 5 6</code></pre>
+<pre class="r"><code>vector [c(8,8,8,8)]</code></pre>
+<pre><code>## [1] 7 7 7 7</code></pre>
+<pre class="r"><code>vector[vector&gt;6]</code></pre>
+<pre><code>## [1]    7 1000</code></pre>
+<pre class="r"><code>vector[vector&lt;6]</code></pre>
+<pre><code>## [1] 1 2 3 4 5 5</code></pre>
+<pre class="r"><code>vector[vector&lt;=6]</code></pre>
+<pre><code>## [1] 1 2 3 4 5 6 5 6</code></pre>
+<pre class="r"><code>vector[vector&gt;=6]</code></pre>
+<pre><code>## [1]    6    7    6 1000</code></pre>
+<pre class="r"><code>vector[vector==6]</code></pre>
+<pre><code>## [1] 6 6</code></pre>
+<pre class="r"><code>vector[vector!=6]</code></pre>
+<pre><code>## [1]    1    2    3    4    5    5    7 1000</code></pre>
+<pre class="r"><code>vector[6]&lt;-3000
+vector[1:2]&lt;-10
+
+class(vector)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<pre class="r"><code>vector[6]&lt;-&quot;j&quot;
+
+class(vector)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>a&lt;-c(&quot;1&quot;, &quot;2&quot;,&quot;3&quot;)
+class (a)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>b&lt;-a
+class(b)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>as.numeric(b)</code></pre>
+<pre><code>## [1] 1 2 3</code></pre>
+<pre class="r"><code>a&lt;-&quot;kjhkjhgkjhgkjhgkjhgkjhgkjjghkgjh&quot;
+a[1]</code></pre>
+<pre><code>## [1] &quot;kjhkjhgkjhgkjhgkjhgkjhgkjjghkgjh&quot;</code></pre>
+<pre class="r"><code>strsplit(a, split=&quot;j&quot;)</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;k&quot;    &quot;hk&quot;   &quot;hgk&quot;  &quot;hgk&quot;  &quot;hgk&quot;  &quot;hgk&quot;  &quot;hgk&quot;  &quot;&quot;     &quot;ghkg&quot; &quot;h&quot;</code></pre>
+<pre class="r"><code>strsplit(a,split=&quot;[,]&quot;)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;kjhkjhgkjhgkjhgkjhgkjhgkjjghkgjh&quot;</code></pre>
+<pre class="r"><code>b&lt;-strsplit(a,split = &quot;&quot;)
+
+
+
+first_names&lt;-c(&quot;Annie&quot;,&quot;Danny&quot;, &quot;Wilson&quot;)
+ages&lt;-c(36, 44, 12)
+grades&lt;-c(89, 56, 99)
+
+everybody&lt;-data.frame(first_names, 
+                      ages, 
+                      grades)
+everybody$first_names</code></pre>
+<pre><code>## [1] Annie  Danny  Wilson
+## Levels: Annie Danny Wilson</code></pre>
+<pre class="r"><code>everybody$ages[2]&lt;-12</code></pre>
+<p>```</p>
+<p>notes about variable types: we can store data as a matrix</p>
 </div>
 <div id="my-first-post" class="section level1">
 <h1>My first post</h1>
-<p>2018 | 7 | 23 Last compiled: 2019-02-03</p>
+<p>2018 | 7 | 23 Last compiled: 2019-02-04</p>
 <p>Notice that whatever you define as a top level header, automatically gets put into the table of contents bar on the left.</p>
 <div id="second-level-header" class="section level2">
 <h2>Second level header</h2>
@@ -459,7 +542,7 @@ vector &lt;-c (&quot;a&quot;, &quot;b&quot;)</code></pre>
 </div>
 <div id="my-second-post-note-the-order" class="section level1">
 <h1>My second post (note the order)</h1>
-<p>2018 | 7 | 23 Last compiled: 2019-02-03</p>
+<p>2018 | 7 | 23 Last compiled: 2019-02-04</p>
 <p>I’m writing this tutorial going from the top down. And, this is how it will be printed. So, notice the second post is second in the list. If you want your most recent post to be at the top, then make a new post starting at the top. If you want the oldest first, do, then keep adding to the bottom</p>
 </div>
 <div id="adding-r-stuff" class="section level1">
@@ -468,7 +551,7 @@ vector &lt;-c (&quot;a&quot;, &quot;b&quot;)</code></pre>
 <p>So, let’s say you are learning how to make a histogram in R. For example, maybe you want to sample 100 numbers from a normal distribution with mean = 0, and standard deviation =1, and then you want to plot a histogram. You can do this right here by using an r code block, like this:</p>
 <pre class="r"><code>samples &lt;- rnorm(100, mean=0, sd=1)
 hist(samples)</code></pre>
-<p><img src="Journal_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="Journal_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>When you knit this R Markdown document, you will see that the histogram is printed to the page, along with the R code. This document can be set up to hide the R code in the webpage, just delete the comment (hashtag), from the cold folding option in the yaml header up top. For purposes of letting yourself see the code, and me see the code, best to keep it the way that it is. You learn all of these things and more can be customized in each R code block.</p>
 </div>
 <div id="the-big-idea" class="section level1">

@@ -1,5 +1,5 @@
 ---
-title: "R Basics"
+title: "R Basics-Class Notes"
 output:
   html_document:
     toc: true
@@ -62,17 +62,85 @@ annie
 To create a vector use <-c with brackets (numbers only need commas between while letters require quotation marks surrounding each letter)
 
 
-```{r}
+```{r, eval=FALSE}
 vector <-c(1, 2, 3, 4)
 vector <-c ("a", "b")
+
+
+
+use : to list a sequence of numbers. To access "Help" quickly then type ? 
+
+```{r}
+x<-c(0:10,50)
+mean(x)
+
 ```
 
 
+>x<-c(0:10, 50)
+>x
 
-IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.
+
+#variables
+```{r}
+a<-1
+b<-"hello world"
+c<-"3"
+class(a)
+class (c)
+
+vector<-c(1,2,3,4,5,6,5,7,6, 1000)
+vector[7]
+vector [3:6]
+vector [c(8,8,8,8)]
+
+vector[vector>6]
+vector[vector<6]
+vector[vector<=6]
+vector[vector>=6]
+vector[vector==6]
+vector[vector!=6]
+
+vector[6]<-3000
+vector[1:2]<-10
+
+class(vector)
+vector[6]<-"j"
+
+class(vector)
+
+a<-c("1", "2","3")
+class (a)
+b<-a
+class(b)
+as.numeric(b)
+
+a<-"kjhkjhgkjhgkjhgkjhgkjhgkjjghkgjh"
+a[1]
+strsplit(a, split="j")
+strsplit(a,split="[,]")
 
 
-This is an .Rmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a \# in front of your text, it will create a top level-header.
+b<-strsplit(a,split = "")
+
+
+
+first_names<-c("Annie","Danny", "Wilson")
+ages<-c(36, 44, 12)
+grades<-c(89, 56, 99)
+
+everybody<-data.frame(first_names, 
+                      ages, 
+                      grades)
+everybody$first_names
+everybody$ages[2]<-12
+
+
+```
+```
+
+notes about variable types: we can store data as a matrix 
+
 
 # My first post
 
