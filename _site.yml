@@ -8,6 +8,8 @@ navbar:
       href: Journal.html
     - text: "More Practice"
       href: Morepractice.html
+    - text: "Dictionary"
+      href: Journal.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"
