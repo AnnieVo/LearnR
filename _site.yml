@@ -9,7 +9,7 @@ navbar:
     - text: "More Practice"
       href: Morepractice.html
     - text: "Dictionary"
-      href: Journal.html
+      href: dictionary.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"

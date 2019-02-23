@@ -246,6 +246,4 @@ print(a)
 
 ```
 
-# Replace this with problem 4
 
-And keep going. Try to solve the problems with different scripts that provide the same solution. Good luck, Happy coding.
