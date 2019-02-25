@@ -532,7 +532,7 @@ everybody$first_names</code></pre>
 </div>
 <div id="my-first-post" class="section level1">
 <h1>My first post</h1>
-<p>2018 | 7 | 23 Last compiled: 2019-02-10</p>
+<p>2018 | 7 | 23 Last compiled: 2019-02-11</p>
 <p>Notice that whatever you define as a top level header, automatically gets put into the table of contents bar on the left.</p>
 <div id="second-level-header" class="section level2">
 <h2>Second level header</h2>
@@ -545,7 +545,7 @@ everybody$first_names</code></pre>
 </div>
 <div id="my-second-post-note-the-order" class="section level1">
 <h1>My second post (note the order)</h1>
-<p>2018 | 7 | 23 Last compiled: 2019-02-10</p>
+<p>2018 | 7 | 23 Last compiled: 2019-02-11</p>
 <p>I’m writing this tutorial going from the top down. And, this is how it will be printed. So, notice the second post is second in the list. If you want your most recent post to be at the top, then make a new post starting at the top. If you want the oldest first, do, then keep adding to the bottom</p>
 </div>
 <div id="adding-r-stuff" class="section level1">
@@ -637,9 +637,58 @@ print(a)</code></pre>
 ##  [69]  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85
 ##  [86]  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100</code></pre>
 </div>
-<div id="replace-this-with-problem-4" class="section level1">
-<h1>Replace this with problem 4</h1>
-<p>And keep going. Try to solve the problems with different scripts that provide the same solution. Good luck, Happy coding.</p>
+<div id="loading-an-r-package" class="section level1">
+<h1>Loading an R package</h1>
+<p>What is an R package? R base functions are under “packages” tab. It’s a library of functions.</p>
+<p>To locate existing package: Packages-&gt;Install-type the package you want-&gt;click install</p>
+<p>Important: you must turn on functions in order to use them in a package. You must first load the package. You can do that by clicking on package from the library OR you can put ‘library(ggplot2)’ for example to have it highlighted/selected.</p>
+<div id="basic-function-syntax" class="section level3">
+<h3>Basic function syntax</h3>
+<pre class="r"><code>my_function&lt;-function(input){
+#body of code
+return (output)
+}</code></pre>
+</div>
+</div>
+<div id="write-a-function" class="section level1">
+<h1>Write a function</h1>
+<p>add_one&lt;-fuunction(x){ return(x+1) }</p>
+<p>Another approach:</p>
+<pre class="r"><code>add_one&lt;-function(x){
+#add one to x, and save output
+save_result&lt;-x+1
+#output the contents of save_result
+return(save_result)
+}</code></pre>
+<p>Another approach:</p>
+<pre class="r"><code>add_one&lt;-function(x)return(x+1)</code></pre>
+</div>
+<div id="no-input-function-example-roll-the-dice" class="section level1">
+<h1>No input function example: “Roll the dice”</h1>
+<p>` Let’s try again:</p>
+<pre class="r"><code>roll_dice&lt;-function(){
+  return(sample(1:6,1))
+}</code></pre>
+<pre class="r"><code>sample(1:6,1)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>roll_dice&lt;-function(){
+return(sample(1:6,1))
+}</code></pre>
+<p>Let’s say we have a bunch of numbers and we want to put it into a function</p>
+<pre class="r"><code>#declare a function
+my_sum&lt;-function(x){
+get_sum&lt;-sum(x)
+}
+
+#declare a variable
+a&lt;-c(1,2,3)
+my_numbers&lt;-c(1,2,3,4,5,6)
+
+my_sum&lt;-function(x){
+get_sum&lt;-sum(x)
+}
+
+my_sum(my_numbers)</code></pre>
 </div>
 
 

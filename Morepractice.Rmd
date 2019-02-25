@@ -76,7 +76,7 @@ help(topic)
 
 2. ?topic
 ```{r}
-?topic 
+?topic
 ```
 
 3. ls()
