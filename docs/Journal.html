@@ -386,7 +386,7 @@ div.tocify {
   <a href="Morepractice.html">More Practice</a>
 </li>
 <li>
-  <a href="Journal.html">Dictionary</a>
+  <a href="dictionary.html">Dictionary</a>
 </li>
 <li>
   <a href="Links.html">Links</a>
@@ -527,16 +527,11 @@ everybody$first_names</code></pre>
 <pre><code>## [1] Annie  Danny  Wilson
 ## Levels: Annie Danny Wilson</code></pre>
 <pre class="r"><code>everybody$ages[2]&lt;-12</code></pre>
-<p>```</p>
 <p>notes about variable types: we can store data as a matrix</p>
 </div>
 <div id="my-first-post" class="section level1">
 <h1>My first post</h1>
-<<<<<<< HEAD
-<p>2018 | 7 | 23 Last compiled: 2019-02-11</p>
-=======
-<p>2018 | 7 | 23 Last compiled: 2019-02-23</p>
->>>>>>> da5b33f238f561cf4eecdc0e87d8cb9fa01f6ff7
+<p>2018 | 7 | 23 Last compiled: 2019-02-28</p>
 <p>Notice that whatever you define as a top level header, automatically gets put into the table of contents bar on the left.</p>
 <div id="second-level-header" class="section level2">
 <h2>Second level header</h2>
@@ -549,11 +544,7 @@ everybody$first_names</code></pre>
 </div>
 <div id="my-second-post-note-the-order" class="section level1">
 <h1>My second post (note the order)</h1>
-<<<<<<< HEAD
-<p>2018 | 7 | 23 Last compiled: 2019-02-11</p>
-=======
-<p>2018 | 7 | 23 Last compiled: 2019-02-23</p>
->>>>>>> da5b33f238f561cf4eecdc0e87d8cb9fa01f6ff7
+<p>2018 | 7 | 23 Last compiled: 2019-02-28</p>
 <p>I’m writing this tutorial going from the top down. And, this is how it will be printed. So, notice the second post is second in the list. If you want your most recent post to be at the top, then make a new post starting at the top. If you want the oldest first, do, then keep adding to the bottom</p>
 </div>
 <div id="adding-r-stuff" class="section level1">
@@ -644,9 +635,7 @@ print(a)</code></pre>
 ##  [52]  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68
 ##  [69]  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85
 ##  [86]  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100</code></pre>
-</div>
-<div id="loading-an-r-package" class="section level1">
-<h1>Loading an R package</h1>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD # Loading an R package</p>
 <p>What is an R package? R base functions are under “packages” tab. It’s a library of functions.</p>
 <p>To locate existing package: Packages-&gt;Install-type the package you want-&gt;click install</p>
 <p>Important: you must turn on functions in order to use them in a package. You must first load the package. You can do that by clicking on package from the library OR you can put ‘library(ggplot2)’ for example to have it highlighted/selected.</p>
@@ -661,13 +650,18 @@ return (output)
 <div id="write-a-function" class="section level1">
 <h1>Write a function</h1>
 <p>add_one&lt;-fuunction(x){ return(x+1) }</p>
-<p>Another approach:</p>
+<p>Another approach: #add one to x, and save output</p>
 <pre class="r"><code>add_one&lt;-function(x){
-#add one to x, and save output
+
 save_result&lt;-x+1
-#output the contents of save_result
+
 return(save_result)
+
+add_one(2)
 }</code></pre>
+</div>
+<div id="output-the-contents-of-save_result" class="section level1">
+<h1>output the contents of save_result</h1>
 <p>Another approach:</p>
 <pre class="r"><code>add_one&lt;-function(x)return(x+1)</code></pre>
 </div>
@@ -682,13 +676,24 @@ return(save_result)
 <pre class="r"><code>roll_dice&lt;-function(){
 return(sample(1:6,1))
 }</code></pre>
-<p>Let’s say we have a bunch of numbers and we want to put it into a function</p>
-<pre class="r"><code>#declare a function
-my_sum&lt;-function(x){
+<p>Let’s say we have a bunch of numbers and we want to put it into a function. #declare a function</p>
+<pre class="r"><code>my_sum&lt;-function(x){
 get_sum&lt;-sum(x)
 }
 
-#declare a variable
+my_sum&lt;-function(x){
+ get_sum&lt;-sum(x)
+  print(&quot;world&quot;)
+ return(&quot;hello&quot;)
+}
+
+my_sum&lt;- function(x){
+  get_sum&lt;- sum(x)
+  print(&quot;world&quot;)
+  return(&quot;hello&quot;)
+}
+
+
 a&lt;-c(1,2,3)
 my_numbers&lt;-c(1,2,3,4,5,6)
 
@@ -697,6 +702,51 @@ get_sum&lt;-sum(x)
 }
 
 my_sum(my_numbers)</code></pre>
+</div>
+<div id="declare-a-variable" class="section level1">
+<h1>declare a variable</h1>
+<pre class="r"><code>ranged_mean&lt;- function(x, min_val, max_val){
+  restricted_values&lt;- x[x&gt;min_val &amp;
+                        x&lt; max_val]
+                        return(mean(restricted_values))
+}
+
+some_numbers&lt;-c(3,4,3,2,3,4,5,6,7,8,8,8,9,8)
+
+ranged_mean(some_numbers, 2,4)</code></pre>
+<pre class="r"><code>#sometimes you will have multiple lists that you want to combine
+
+ranged_mean2 &lt;- function(x, min_val, max_val){
+  restricted_values &lt;- x[x&gt;min_val &amp; 
+                        x&lt; max_val]
+  
+  outputs&lt;- list(original_values = x,
+        restricted_vallues = restricted_values)
+        
+  some_numbers&lt;-c(3,4,3,2,3,4,5,6,7,8,8,8,9,8)
+
+ranged_mean(some_numbers, 2,4) 
+}</code></pre>
+<p>Practice Graphs</p>
+<pre class="r"><code>library (ggplot2)
+job &lt;- rep(as.factor(c(&quot;Doctor&quot;,&quot;Butcher&quot;,&quot;Firefighter&quot;, &quot;Construction&quot;)),3)
+levels(job)&lt;-levels(job)[c(3,1,4,2)]#since 
+
+sex &lt;- as.factor(c(&quot;equal&quot;, &quot;women&quot;, &quot;men&quot;))
+percentage &lt;- c(10,30,40,40,80,60,50,50,10,15,5,10)
+
+plot_df &lt;- data.frame(job,
+                      sex,
+                      percentage)
+
+# basic bar graph
+
+ggplot(plot_df, aes(x=job,y=percentage,
+                    group=sex, #by adding group factor then you can combine 2 factors
+                    color=sex,
+                    fill=sex))+ #color factor refers to the border color and fill refers to entire color of the bar
+  geom_bar(stat=&quot;identity&quot;) #position=dodge makes it side by side bars, without it the bars will be stacked </code></pre>
+<p><img src="Journal_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 
 

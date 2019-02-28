@@ -339,7 +339,7 @@ my_sum(my_numbers)
 #declare a variable
 
 
-```{r, eval FALSE}
+```{r, eval=FALSE}
 ranged_mean<- function(x, min_val, max_val){
   restricted_values<- x[x>min_val &
                         x< max_val]
