@@ -84,6 +84,7 @@ ggplot(plot_df, aes(x=a,y=b))+
 Be careful, the font size stays the size it is set at even if the overall graph is shrunken.
 
 ```{r}
+library(ggplot2)
 factor_one <- as.factor(c("A","B","C"))
 dv_means <- c(20,30,40)
 dv_SEs   <- c(4,3.4,4)
@@ -106,6 +107,7 @@ Step three: type in command
 If you want to add error bars to your graph, you must define your parameters or else it will not magically create it (must define the minimum and maximum)
 
 ```{r}
+library(ggplot2)
 ggplot(plot_df, aes(x=factor_one,y=dv_means))+
   geom_bar(stat="identity")+
   geom_errorbar(aes(ymin=dv_means-dv_SEs,
@@ -123,6 +125,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means))+
 How about a graph with 6 total conditions
 
 ```{r}
+library(ggplot2)
 factor_one <- rep(as.factor(c("A","B","C")),2) #use rep to repeat and then ,# of times you want it to repeat
 factor_two <- rep(as.factor(c("IIA","IIB")),3)
 dv_means <- c(20,30,40,20,40,40)
@@ -142,7 +145,8 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
 
 ```
 
-```{r}
+```{r, eval=FALSE}
+library(ggplot2)
 ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two,
@@ -168,6 +172,7 @@ Use facet_wrap(tilde...) to break data into two graphs
 Example
 
 ```{r}
+library(ggplot2)
 Names <- rep(c("Dara", "Azalea", "Barbi", "Rowena", "Fiona"),each=2)
 MF <- rnorm(10, 45, 25)
 Condition <- rep(c("Social", "Nonsocial"), 5)

@@ -246,6 +246,7 @@ print(a)
 
 ```
 
+<<<<<<< HEAD
 # Loading an R package
 
 What is an R package? R base functions are under "packages" tab. It's a library of functions. 
@@ -370,6 +371,7 @@ ranged_mean(some_numbers, 2,4)
 Practice Graphs
 
 ```{r}
+library (ggplot2)
 job <- rep(as.factor(c("Doctor","Butcher","Firefighter", "Construction")),3)
 levels(job)<-levels(job)[c(3,1,4,2)]#since 
 
@@ -389,3 +391,5 @@ ggplot(plot_df, aes(x=job,y=percentage,
   geom_bar(stat="identity") #position=dodge makes it side by side bars, without it the bars will be stacked 
 
 ```
+
+
