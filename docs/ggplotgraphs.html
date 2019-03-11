@@ -11,9 +11,9 @@
 
 <meta name="author" content="Annie" />
 
-<meta name="date" content="2019-02-23" />
+<meta name="date" content="2019-03-11" />
 
-<title>Dictionary</title>
+<title>ggplot graphs</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -307,105 +307,81 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Dictionary</h1>
+<h1 class="title toc-ignore">ggplot graphs</h1>
 <h4 class="author"><em>Annie</em></h4>
-<h4 class="date"><em>February 23, 2019</em></h4>
+<h4 class="date"><em>March 11, 2019</em></h4>
 
 </div>
 
 
-<div id="dictionary" class="section level1">
-<h1>Dictionary</h1>
-<div id="general-bits" class="section level2">
-<h2>General bits</h2>
-<ol style="list-style-type: decimal">
-<li><p>help(topic)</p></li>
-<li><p>?topic</p></li>
-<li><p>ls()</p></li>
-<li><p>dir()</p></li>
-<li><p>list.files()</p></li>
-</ol>
-</div>
-<div id="input-and-output" class="section level2">
-<h2>Input and output</h2>
-<p>save()</p>
-<p>load()</p>
-<p>data()</p>
-<p>library() -This code allows you to access a package and insert it into your code. Then it allows your package to work for the code chunk. ex.</p>
 <pre class="r"><code>library(ggplot2)
-Names &lt;- rep(c(&quot;Dara&quot;, &quot;Azalea&quot;, &quot;Barbi&quot;, &quot;Rowena&quot;, &quot;Fiona&quot;),each=2)
-MF &lt;- rnorm(10, 45, 25)
-Condition &lt;- rep(c(&quot;Social&quot;, &quot;Nonsocial&quot;), 5)
-Aversity &lt;- rep(c(&quot;A&quot;, &quot;N_A&quot;), times=c(4,6))
-plot_df &lt;- data.frame (Names, MF, Condition, Aversity)
+factor_one &lt;- rep(as.factor(c(&quot;No Transient&quot;,&quot;Transient&quot;)),2)
+factor_two &lt;- rep(as.factor(c(&quot;Outside&quot;,&quot;Inside&quot;)),2)
+dv_means &lt;- c(304,300,290,280)
+dv_SEs   &lt;- c(4,3.4,4,3)
+plot_df &lt;- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
 
-ggplot(plot_df, aes(x=Condition, y=MF, group=Names, 
-                    linetype=Aversity))</code></pre>
-<p><img src="Dictionary_files/figure-html/unnamed-chunk-1-1.png" width="672" /> read.table()</p>
-<p>read.csv()</p>
-<p>scan()</p>
-<p>print()</p>
-<p>cat()</p>
-<p>write.table()</p>
-</div>
-<div id="data-creation" class="section level2">
-<h2>Data Creation</h2>
-<p>c()</p>
-<p>from:to (where from and to are replaced with numbers, e.g. 1:10)</p>
-<p>seq()</p>
-<p>rep()</p>
-<p>data.frame() This function creates a group of data</p>
-<pre class="r"><code>data.frame(1, 2, 3, 5)</code></pre>
-<pre><code>##   X1 X2 X3 X5
-## 1  1  2  3  5</code></pre>
-<p>list()</p>
-<p>matrix()</p>
-<p>factor()</p>
-<p>rbind()</p>
-<p>cbind()</p>
-</div>
-<div id="slicing-and-extracting-data-indexing-vectors" class="section level2">
-<h2>Slicing and extracting data indexing vectors</h2>
-<p>x[n] nth element x[-n] all but nth element x[1:n] first n elements x[-(1:n)] elements from n+1 to the end x[c(1,4,2)] specific elements x[“name”] elements named “name” x[x&gt;3] all elements greater than 3 x[x &gt; 3 &amp; x &lt; 5] all elements between 3 and 5 x[x %in% c(“a”,“and”,“the”)] all elements in given set</p>
-</div>
-<div id="indexing-lists" class="section level2">
-<h2>Indexing lists</h2>
-<p>x[n] list with elements n x[[n]] nt h element of the list x[[“name”]] element of the list named “name” x$name id.</p>
-</div>
-<div id="indexing-matrices" class="section level2">
-<h2>Indexing matrices</h2>
-<p>x[i,j] element at row i, column j x[i,] row i x[,j] column j x[,c(1,3)] columns 1 and 3 x[“name”,] row named “name” Indexing data frames (matrix indexing plus the following) x[[“name”]] column named “name” x$nameid.</p>
-</div>
-<div id="variable-conversion" class="section level2">
-<h2>Variable conversion</h2>
-<p>as.data.frame(x) as.numeric(x) as.logical(x) as.character(x)</p>
-</div>
-<div id="variable-information" class="section level2">
-<h2>Variable information</h2>
-<p>is.na(x) is.null(x) is.data.frame(x) is.numeric(x) is.character(x) length(x) dim(x) dimnames(x) nrow(x) ncol(x) class() attributes()</p>
-</div>
-<div id="data-selection-and-manipulation" class="section level2">
-<h2>Data selection and manipulation</h2>
-<p>which.max() which.min() which() sort() unique() table() sample() Math max() min() range() sum() mean() median() var() sd() cor() round() abs()</p>
-</div>
-<div id="matrices" class="section level2">
-<h2>Matrices</h2>
-<p>t() diag() rowSums() colSums() rowMeans() colMeans()</p>
-</div>
-<div id="advanced-data-processing" class="section level2">
-<h2>Advanced Data processing</h2>
-<p>apply() aggregate() Strings paste() strsplit() tolower() toupper Plotting hist() plot() Distributions rnorm() runif()</p>
-</div>
-<div id="programming" class="section level2">
-<h2>Programming</h2>
-<p>show that you can define a function show that you can write a for loop show that you can write a while loop show that you can write an if else statement Explain what return() does inside a function, show you can use it Explain what break() does, show you can use it</p>
-</div>
-<div id="installing-some-packages" class="section level2">
-<h2>Installing some packages</h2>
-<p>Use the packages tab in R-studio to install these packages. You will need to be connected to the internet when you do this. If you are installing on your laptop, or on R-studio Cloud, then these packages will not need to installed again.</p>
-<p>ggplot2 dplyr shiny data.table reshape2 stringr</p>
-</div>
-</div>
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two))+
+  geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)</code></pre>
+<p><img src="ggplotgraphs_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>library(ggplot2)
+factor_one &lt;- rep(as.factor(c(&quot;No Transient&quot;,&quot;Transient&quot;)),2)
+factor_two &lt;- rep(as.factor(c(&quot;Outside&quot;,&quot;Inside&quot;)),2)
+dv_means &lt;- c(304,290,300,280)
+dv_SEs   &lt;- c(4,3.4,4,3)
+plot_df &lt;- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two))+
+  geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)</code></pre>
+<p><img src="ggplotgraphs_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>library(ggplot2)
+manipulation &lt;- as.factor(c(&quot;-25&quot;,&quot;-8.5&quot;,&quot;8.5&quot;, &quot;25&quot;))
+dv_means &lt;- c(4.5,4.6,4.8,5)
+dv_SEs   &lt;- c(4,3.4,4,4)
+plot_df &lt;- data.frame(factor_one,
+                      dv_means,
+                      dv_SEs)
+
+ggplot(plot_df, aes(x=manipulation,y=dv_means, group=1))+
+  geom_point()+
+  geom_line()
+ggplot(plot_df, aes(x=factor_one,y=dv_means, group=1))+
+  geom_point()+
+  geom_line()+
+  geom_errorbar(aes(ymin=dv_means-dv_SEs,
+                    ymax=dv_means+dv_SEs),
+                width=.2)
+  coord_cartesian(ylim=c(0,100))+
+  xlab(&quot;x-axis label&quot;)+
+  ylab(&quot;y-axis label&quot;)+
+  ggtitle(&quot;Male Faces &quot;)+
+  theme_classic(base_size=12)+
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<pre class="r"><code>factor_one &lt;- rep(as.factor(c(&quot;4:6&quot;,&quot;6:9&quot;,&quot;4:9&quot;)),2)
+factor_two &lt;- rep(as.factor(c(&quot;Wide Base&quot;,&quot;Wide Top&quot;)),3)
+dv_means &lt;- c(15.5,16.2,16.5,15.1,16.5,17.8)
+dv_SEs   &lt;- c(4,3.4,4,3,2,4)
+plot_df &lt;- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
+
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two))+
+  geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)</code></pre>
+<p><img src="ggplotgraphs_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 
 
 

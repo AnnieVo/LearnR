@@ -15,13 +15,18 @@ output:
 2. ?topic
 
 3. ls()
+
 4. dir()
+
 5. list.files()
 
 ##Input and output
 save()
+
 load()
+
 data()
+
 library()
 -This code allows you to access a package and insert it into your code. Then it allows your package to work for the code chunk.
 ex.
@@ -38,22 +43,39 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 
 ```
 read.table()
+
 read.csv()
+
 scan()
+
 print()
+
 cat()
+
 write.table()
 
 ##Data Creation
 c()
+
 from:to (where from and to are replaced with numbers, e.g. 1:10)
+
 seq()
+
 rep()
+
 data.frame()
+This function creates a group of data
+```{r}
+data.frame(1, 2, 3, 5)
+```
 list()
+
 matrix()
+
 factor()
+
 rbind()
+
 cbind()
 
 ##Slicing and extracting data indexing vectors

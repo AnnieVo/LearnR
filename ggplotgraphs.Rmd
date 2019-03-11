@@ -1,0 +1,89 @@
+---
+title: "ggplot graphs"
+author: "Annie"
+date: "March 11, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+factor_one <- rep(as.factor(c("No Transient","Transient")),2)
+factor_two <- rep(as.factor(c("Outside","Inside")),2)
+dv_means <- c(304,300,290,280)
+dv_SEs   <- c(4,3.4,4,3)
+plot_df <- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two))+
+  geom_bar(stat="identity", position="dodge")
+```
+
+```{r}
+library(ggplot2)
+factor_one <- rep(as.factor(c("No Transient","Transient")),2)
+factor_two <- rep(as.factor(c("Outside","Inside")),2)
+dv_means <- c(304,290,300,280)
+dv_SEs   <- c(4,3.4,4,3)
+plot_df <- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two))+
+  geom_bar(stat="identity", position="dodge")
+```
+
+```{r, eval=FALSE}
+library(ggplot2)
+manipulation <- as.factor(c("-25","-8.5","8.5", "25"))
+dv_means <- c(4.5,4.6,4.8,5)
+dv_SEs   <- c(4,3.4,4,4)
+plot_df <- data.frame(factor_one,
+                      dv_means,
+                      dv_SEs)
+
+ggplot(plot_df, aes(x=manipulation,y=dv_means, group=1))+
+  geom_point()+
+  geom_line()
+ggplot(plot_df, aes(x=factor_one,y=dv_means, group=1))+
+  geom_point()+
+  geom_line()+
+  geom_errorbar(aes(ymin=dv_means-dv_SEs,
+                    ymax=dv_means+dv_SEs),
+                width=.2)
+  coord_cartesian(ylim=c(0,100))+
+  xlab("x-axis label")+
+  ylab("y-axis label")+
+  ggtitle("Male Faces ")+
+  theme_classic(base_size=12)+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+```{r}
+factor_one <- rep(as.factor(c("4:6","6:9","4:9")),2)
+factor_two <- rep(as.factor(c("Wide Base","Wide Top")),3)
+dv_means <- c(15.5,16.2,16.5,15.1,16.5,17.8)
+dv_SEs   <- c(4,3.4,4,3,2,4)
+plot_df <- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
+
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two))+
+  geom_bar(stat="identity", position="dodge")
+```
+

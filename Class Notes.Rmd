@@ -146,6 +146,7 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
 ```
 
 ```{r, eval=FALSE}
+
 library(ggplot2)
 ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
@@ -165,9 +166,12 @@ ggplot(plot_df, aes(x=factor_one,y=dv_means,
   theme(plot.title = element_text(hjust = 0.5))
 
 
-```
+
 
 Use facet_wrap(tilde...) to break data into two graphs
+
+
+
 
 Example
 
@@ -185,3 +189,21 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
   geom_text(label=Names)+
   theme_classic()
 ```
+
+
+March 11, 2019
+
+```{r, eval=FALSE}
+library(dplyr) 
+df <- starwars 
+
+```
+
+;
+```{r}
+
+library(dplyr)
+df <- starwars
+
+```
+

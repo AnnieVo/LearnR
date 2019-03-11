@@ -7,9 +7,9 @@ navbar:
     - text: "Journal"
       href: Journal.html
     - text: "More Practice"
-      href: Morepractice.html
+      href: Class_Practice
     - text: "Dictionary"
-      href: dictionary.html
+      href: index.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"
