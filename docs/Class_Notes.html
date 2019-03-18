@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Annie" />
+
+<meta name="date" content="2019-03-18" />
+
+<title>Class Notes</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MyLabJournal</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Journal.html">Journal</a>
+</li>
+<li>
+  <a href="Morepractice.html">More Practice</a>
+</li>
+<li>
+  <a href="dictionary.html">Dictionary</a>
+</li>
+<li>
+  <a href="classnotes.html">Class Notes</a>
+</li>
+<li>
+  <a href="ggplotgraphs.html">ggplot Graphs</a>
+</li>
+<li>
+  <a href="datawrangling.html">Data Wrangling</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Class Notes</h1>
+<h4 class="author"><em>Annie</em></h4>
+<h4 class="date"><em>March 18, 2019</em></h4>
+
+</div>
+
+
+<p>March 18, 2019</p>
+<div id="one-sample-t-test" class="section level1">
+<h1>one sample t-test</h1>
+<pre class="r"><code>x &lt;- c(1,4,3,2,3,4,3,3,4,3,4,3) #create basic vector
+
+t.test(x, mu = 2) #non-directional</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = 4.1682, df = 11, p-value = 0.001567
+## alternative hypothesis: true mean is not equal to 2
+## 95 percent confidence interval:
+##  2.511287 3.655380
+## sample estimates:
+## mean of x 
+##  3.083333</code></pre>
+<pre class="r"><code>t.test (x, mu=2, alternative = &quot;two.sided&quot;) #the default</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  x
+## t = 4.1682, df = 11, p-value = 0.001567
+## alternative hypothesis: true mean is not equal to 2
+## 95 percent confidence interval:
+##  2.511287 3.655380
+## sample estimates:
+## mean of x 
+##  3.083333</code></pre>
+<pre class="r"><code>x &lt;- c(1,4,3,2,3,4,3,2,3,4,3,4)
+y &lt;- c(3,2,5,4,3,2,3,2,1,2,2,3)
+
+#non-directional
+t.test(x, y, paired = TRUE) #to indicate paired t-test use code &quot;paired=TRUE&quot;</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  x and y
+## t = 0.71528, df = 11, p-value = 0.4893
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.6923629  1.3590295
+## sample estimates:
+## mean of the differences 
+##               0.3333333</code></pre>
+<p>The default t-test in R is a Welch’s t-test</p>
+<pre class="r"><code>x &lt;- c(1,4,3,2,3,4,3,2,3,4,3,4)
+y &lt;- c(3,2,5,4,3,2,3,2,1,2,2,3)
+
+t.test(x,y)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  x and y
+## t = 0.8044, df = 21.7, p-value = 0.4299
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.5267443  1.1934110
+## sample estimates:
+## mean of x mean of y 
+##  3.000000  2.666667</code></pre>
+<p>If you do not want a Welch t-test then add “var.equal=T”</p>
+<pre class="r"><code>x &lt;- c(1,4,3,2,3,4,3,2,3,4,3,4)
+y &lt;- c(3,2,5,4,3,2,3,2,1,2,2,3)
+
+t.test(x,y, var.equal = T)</code></pre>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  x and y
+## t = 0.8044, df = 22, p-value = 0.4298
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.5260542  1.1927208
+## sample estimates:
+## mean of x mean of y 
+##  3.000000  2.666667</code></pre>
+<pre class="r"><code>a&lt;- replicate(10000,t.test(rnorm(10,0,1), rnorm(10,0,1))$p.value)
+hist(a)</code></pre>
+<p><img src="Class_Notes_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>10000*.05</code></pre>
+<pre><code>## [1] 500</code></pre>
+<pre class="r"><code>a[a&lt;.05] #how many of the values falls under the null? How does t behave under the distribution value?</code></pre>
+<pre><code>##   [1] 0.0170164124 0.0436544090 0.0157134738 0.0147651708 0.0155032044
+##   [6] 0.0386218461 0.0039848149 0.0105985609 0.0072817421 0.0217532479
+##  [11] 0.0471730652 0.0365586205 0.0088587334 0.0221217300 0.0026967362
+##  [16] 0.0195801327 0.0412232251 0.0469556088 0.0385409295 0.0228489161
+##  [21] 0.0024579211 0.0059183815 0.0445474942 0.0400810034 0.0095572340
+##  [26] 0.0275348284 0.0483201359 0.0029386246 0.0119018607 0.0186885316
+##  [31] 0.0173132814 0.0193907342 0.0428169530 0.0089128534 0.0305048661
+##  [36] 0.0263068082 0.0284676545 0.0285665058 0.0372830069 0.0290609917
+##  [41] 0.0085214102 0.0327603684 0.0096931766 0.0113866427 0.0246918269
+##  [46] 0.0437180853 0.0067192691 0.0074630652 0.0482510045 0.0392024293
+##  [51] 0.0210712823 0.0095196517 0.0331183069 0.0253819982 0.0117582050
+##  [56] 0.0043058999 0.0312747633 0.0492424616 0.0331430056 0.0033887918
+##  [61] 0.0084558996 0.0130332367 0.0105291212 0.0117103235 0.0094721517
+##  [66] 0.0404511314 0.0354006518 0.0055198484 0.0365052947 0.0062617819
+##  [71] 0.0185353064 0.0213054430 0.0170883883 0.0458043099 0.0307171280
+##  [76] 0.0417889449 0.0092401889 0.0480503039 0.0374038577 0.0096903682
+##  [81] 0.0229005967 0.0263284472 0.0012586170 0.0134408394 0.0073584648
+##  [86] 0.0376586751 0.0431884821 0.0318122517 0.0283383162 0.0472682578
+##  [91] 0.0114632549 0.0089007060 0.0231794000 0.0414446386 0.0079901559
+##  [96] 0.0407250079 0.0264438241 0.0204030076 0.0121337964 0.0239402231
+## [101] 0.0423116632 0.0307676512 0.0275614727 0.0260462917 0.0395657884
+## [106] 0.0197178002 0.0351778835 0.0206708182 0.0388858369 0.0178819244
+## [111] 0.0229629903 0.0363304666 0.0337437957 0.0222577676 0.0070693845
+## [116] 0.0047616443 0.0082613406 0.0393280557 0.0477874020 0.0166640199
+## [121] 0.0292188334 0.0288995972 0.0070435063 0.0277005079 0.0336158880
+## [126] 0.0184287776 0.0457416957 0.0209557381 0.0136009643 0.0186991687
+## [131] 0.0163426358 0.0492113057 0.0264921700 0.0015039127 0.0356938541
+## [136] 0.0001897419 0.0260487541 0.0165028812 0.0096435439 0.0224532621
+## [141] 0.0091716451 0.0257029559 0.0497550197 0.0398434264 0.0118410119
+## [146] 0.0146812817 0.0080018961 0.0449517088 0.0423727534 0.0014820516
+## [151] 0.0197218109 0.0479014000 0.0268842125 0.0439165775 0.0489790710
+## [156] 0.0374012142 0.0037877644 0.0299173520 0.0251664379 0.0142656106
+## [161] 0.0067802576 0.0010704993 0.0320792644 0.0427715490 0.0205314375
+## [166] 0.0453693760 0.0302920896 0.0266384154 0.0288040616 0.0202661306
+## [171] 0.0224399537 0.0041250117 0.0443547836 0.0444069838 0.0379261223
+## [176] 0.0383583439 0.0109287745 0.0269968753 0.0101362415 0.0036003321
+## [181] 0.0096957375 0.0391028968 0.0330296145 0.0209533503 0.0410032129
+## [186] 0.0294401786 0.0062056017 0.0328080369 0.0226283412 0.0199534277
+## [191] 0.0347468770 0.0048845185 0.0294283231 0.0452953689 0.0434918651
+## [196] 0.0443064078 0.0060236270 0.0468705098 0.0239079799 0.0429368669
+## [201] 0.0319607509 0.0233420676 0.0035621175 0.0463038835 0.0467876191
+## [206] 0.0370027388 0.0147270337 0.0322055703 0.0184658446 0.0005231795
+## [211] 0.0401491602 0.0139128654 0.0205606364 0.0144764633 0.0377304290
+## [216] 0.0423129848 0.0084859287 0.0326295819 0.0159743685 0.0273101223
+## [221] 0.0059154529 0.0036578473 0.0017209868 0.0071857956 0.0440827799
+## [226] 0.0441209882 0.0317194661 0.0196025769 0.0439509126 0.0371160324
+## [231] 0.0113633988 0.0369629223 0.0432165295 0.0041852523 0.0339584821
+## [236] 0.0018346905 0.0212387309 0.0194984524 0.0130607322 0.0267441725
+## [241] 0.0241070186 0.0360527644 0.0246012657 0.0261801025 0.0006802623
+## [246] 0.0244166951 0.0402727815 0.0471528456 0.0454067761 0.0046575999
+## [251] 0.0028310048 0.0242068136 0.0041022362 0.0115478555 0.0126482122
+## [256] 0.0419803785 0.0383306934 0.0069457638 0.0271605915 0.0106941327
+## [261] 0.0235252434 0.0387893788 0.0111346021 0.0052519587 0.0294809484
+## [266] 0.0206975709 0.0044533866 0.0007568474 0.0084299300 0.0388466783
+## [271] 0.0021445169 0.0169113166 0.0132062891 0.0166823044 0.0459625473
+## [276] 0.0499913118 0.0095409834 0.0262644503 0.0094656861 0.0338968252
+## [281] 0.0057436668 0.0486424748 0.0380857354 0.0386074898 0.0148353214
+## [286] 0.0295693885 0.0101510241 0.0060017202 0.0257252709 0.0328839789
+## [291] 0.0343780962 0.0422919359 0.0363984427 0.0213779960 0.0456717555
+## [296] 0.0043056437 0.0040573128 0.0365203695 0.0270599214 0.0404275682
+## [301] 0.0199498197 0.0119434330 0.0033824062 0.0122514336 0.0449156921
+## [306] 0.0162731755 0.0493620017 0.0184871989 0.0006353305 0.0276638360
+## [311] 0.0288436897 0.0129952290 0.0193372250 0.0326059427 0.0382958173
+## [316] 0.0078830222 0.0229451141 0.0043056065 0.0178549013 0.0493858803
+## [321] 0.0153777392 0.0336651890 0.0381000747 0.0189066880 0.0029312608
+## [326] 0.0032318257 0.0280226384 0.0454298226 0.0480831911 0.0228277754
+## [331] 0.0294392257 0.0485104571 0.0223185200 0.0338645778 0.0352879142
+## [336] 0.0097034971 0.0378218553 0.0274041867 0.0098192046 0.0452082579
+## [341] 0.0351301366 0.0126228827 0.0221568191 0.0371391353 0.0158323091
+## [346] 0.0265937896 0.0141255851 0.0303179204 0.0079765429 0.0265058235
+## [351] 0.0094883308 0.0285063816 0.0031498359 0.0009767907 0.0182774953
+## [356] 0.0118084784 0.0223286524 0.0153209382 0.0348084808 0.0093698119
+## [361] 0.0146096549 0.0089308758 0.0298318348 0.0475413787 0.0456975233
+## [366] 0.0229075028 0.0289067826 0.0335120853 0.0117962803 0.0392660460
+## [371] 0.0180578055 0.0259022786 0.0015848914 0.0353063903 0.0314571608
+## [376] 0.0292605662 0.0062968847 0.0375426669 0.0099741541 0.0395050723
+## [381] 0.0283480472 0.0454362853 0.0347790038 0.0340811334 0.0218758702
+## [386] 0.0181211366 0.0298670993 0.0450342547 0.0095285526 0.0297772450
+## [391] 0.0317375871 0.0400400279 0.0301271042 0.0152200151 0.0103894915
+## [396] 0.0207521467 0.0439830620 0.0473802587 0.0260671648 0.0340047060
+## [401] 0.0256168453 0.0113990299 0.0057205286 0.0360528642 0.0421122326
+## [406] 0.0396178680 0.0046359095 0.0378991847 0.0444844380 0.0115874983
+## [411] 0.0234550629 0.0008405540 0.0443524066 0.0214285412 0.0229517388
+## [416] 0.0280927001 0.0398173498 0.0063425542 0.0198023614 0.0064384201
+## [421] 0.0112604988 0.0476699188 0.0368010347 0.0007579627 0.0224782519
+## [426] 0.0185224333 0.0339538686 0.0330352089 0.0180707908 0.0263596811
+## [431] 0.0016176545 0.0493007962 0.0295441516 0.0300917980 0.0439390895
+## [436] 0.0469358160 0.0442136574 0.0087682756 0.0167294854 0.0227601253
+## [441] 0.0220841274 0.0204872416 0.0362949482 0.0107180755 0.0041968783
+## [446] 0.0490869128 0.0143468072 0.0395047308 0.0461921687 0.0357524662
+## [451] 0.0497262784 0.0407250221 0.0135248168 0.0178640259 0.0382719963
+## [456] 0.0183399854 0.0039157565 0.0352169385 0.0312360259 0.0364741581
+## [461] 0.0273833511 0.0001093573 0.0464931668 0.0441963781 0.0071923236
+## [466] 0.0397447872 0.0228197106 0.0273451782 0.0475063477 0.0062904033
+## [471] 0.0324004320 0.0469866074 0.0360165199 0.0135731779 0.0486114969
+## [476] 0.0241724126 0.0465270741 0.0014574122 0.0439665080 0.0214090731
+## [481] 0.0358576227 0.0082126126 0.0320845721 0.0465298264 0.0027261557
+## [486] 0.0326183858 0.0136816688 0.0465010335 0.0439565348 0.0340014248
+## [491] 0.0348760690 0.0204708461 0.0026994407 0.0122393643 0.0126355383
+## [496] 0.0183073523 0.0352599348 0.0071165483 0.0166144736 0.0240939352
+## [501] 0.0013125465 0.0321034669 0.0303338687 0.0299001127 0.0401062663
+## [506] 0.0471809051 0.0210537409 0.0446648567 0.0306840452 0.0288317567
+## [511] 0.0392626458 0.0265500437 0.0483317600 0.0483150810 0.0446011989
+## [516] 0.0275829140 0.0145566093 0.0374987129 0.0440057835 0.0262093980
+## [521] 0.0311248813 0.0153919186 0.0262413902 0.0197612453</code></pre>
+<pre class="r"><code>length(a[a&lt;.05])</code></pre>
+<pre><code>## [1] 524</code></pre>
+<p>Use can use report_t(t_results) to print out results underneath the vector data</p>
+<p>ANOVA</p>
+<pre class="r"><code>factor1 &lt;- rep(c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;),each=5) 
+DV &lt;- rnorm(n=15,mean=0,sd=1)
+all_data&lt;-data.frame(DV,factor1)
+
+aov_out &lt;- aov(DV~factor1, all_data) #run the ANOVA, be mindful of DV~factor1
+summary(aov_out) #details of ANOVA are in aov_out and then summary(aov_out) prints an F-table</code></pre>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)
+## factor1      2  1.498  0.7490   0.829   0.46
+## Residuals   12 10.849  0.9041</code></pre>
+<pre class="r"><code>library(xtable) #kable xtable printing, makes the F table look more standard</code></pre>
+<pre><code>## Warning: package &#39;xtable&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code>knitr::kable(xtable(summary(aov_out))) #used for formatting of the table, kable </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>factor1</td>
+<td align="right">2</td>
+<td align="right">1.498069</td>
+<td align="right">0.7490345</td>
+<td align="right">0.8285027</td>
+<td align="right">0.4602084</td>
+</tr>
+<tr class="even">
+<td>Residuals</td>
+<td align="right">12</td>
+<td align="right">10.848985</td>
+<td align="right">0.9040821</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p>For a between-subjects 2 factor ANOVA</p>
+<ol style="list-style-type: decimal">
+<li>run ANOVA aov_out&lt;-(DV~Factor1*Factor2, all_data)</li>
+<li>compile summary summary(aov_out)</li>
+</ol>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

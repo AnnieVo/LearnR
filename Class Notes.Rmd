@@ -1,0 +1,93 @@
+---
+title: "Class Notes"
+author: "Annie"
+date: "March 18, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+March 18, 2019
+
+#one sample t-test
+
+```{r}
+x <- c(1,4,3,2,3,4,3,3,4,3,4,3) #create basic vector
+
+t.test(x, mu = 2) #non-directional
+```
+
+```{r}
+t.test (x, mu=2, alternative = "two.sided") #the default
+```
+
+```{r}
+x <- c(1,4,3,2,3,4,3,2,3,4,3,4)
+y <- c(3,2,5,4,3,2,3,2,1,2,2,3)
+
+#non-directional
+t.test(x, y, paired = TRUE) #to indicate paired t-test use code "paired=TRUE"
+```
+
+The default t-test in R is a Welch's t-test
+
+```{r}
+x <- c(1,4,3,2,3,4,3,2,3,4,3,4)
+y <- c(3,2,5,4,3,2,3,2,1,2,2,3)
+
+t.test(x,y)
+```
+
+If you do not want a Welch t-test then add "var.equal=T"
+
+```{r}
+x <- c(1,4,3,2,3,4,3,2,3,4,3,4)
+y <- c(3,2,5,4,3,2,3,2,1,2,2,3)
+
+t.test(x,y, var.equal = T)
+```
+
+```{r}
+a<- replicate(10000,t.test(rnorm(10,0,1), rnorm(10,0,1))$p.value)
+hist(a)
+```
+
+```{r}
+10000*.05
+```
+
+```{r}
+a[a<.05] #how many of the values falls under the null? How does t behave under the distribution value?
+```
+
+```{r}
+length(a[a<.05])
+```
+
+Use can use report_t(t_results) to print out results underneath the vector data
+
+ANOVA
+
+```{r}
+factor1 <- rep(c("A","B","C"),each=5) 
+DV <- rnorm(n=15,mean=0,sd=1)
+all_data<-data.frame(DV,factor1)
+
+aov_out <- aov(DV~factor1, all_data) #run the ANOVA, be mindful of DV~factor1
+summary(aov_out) #details of ANOVA are in aov_out and then summary(aov_out) prints an F-table
+
+library(xtable) #kable xtable printing, makes the F table look more standard
+knitr::kable(xtable(summary(aov_out))) #used for formatting of the table, kable 
+
+
+```
+
+For a between-subjects 2 factor ANOVA
+
+1. run ANOVA
+aov_out<-(DV~Factor1*Factor2, all_data)
+2. compile summary
+summary(aov_out)
+

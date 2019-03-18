@@ -9,9 +9,11 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Annie" />
 
+<meta name="date" content="2019-02-23" />
 
-<title>Resources</title>
+<title>Dictionary</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -314,26 +316,85 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Resources</h1>
+<h1 class="title toc-ignore">Dictionary</h1>
+<h4 class="author"><em>Annie</em></h4>
+<h4 class="date"><em>February 23, 2019</em></h4>
 
 </div>
 
 
-<div id="r-and-r-studio" class="section level3">
-<h3>R and R-Studio</h3>
-<p><a href="http://www.r-project.org">R</a> is a free open-source programming language that can be used for statistical analysis, data-simulation, graphing, and lots of other stuff. Another free program is <a href="http://www.rstudio.com">R-studio</a>, that provides a nice graphic interface for R. Download R first, then download R-studio. Both can run on PCs, Macs or Linux. Students will be learning R in the stats labs using the lab manual <a href=""></a>.</p>
-</div>
-<div id="additional-r-resources" class="section level3">
-<h3>Additional R resources</h3>
+<div id="dictionary" class="section level1">
+<h1>Dictionary</h1>
+<div id="general-bits" class="section level2">
+<h2>General bits</h2>
 <ol style="list-style-type: decimal">
-<li>Google is great, Google your problem</li>
-<li><a href="https://stackoverflow.com">Stackoverflow</a> is great, google will often take you there because someone has already asked your question, and someone else has answered, usually many people have answered your question many ways.</li>
-<li>Danielle Navarro wrote a <a href="https://compcogscisydney.org/learning-statistics-with-r/">free Psych Stats textbook using R</a>, it’s worth checking out (some of our textbook are based on Danielle’s)</li>
-<li>I am currently writing another stats textbook (incorporating some of the above). You can read it while it’s being made right here <a href="https://crumplab.github.io/statistics/" class="uri">https://crumplab.github.io/statistics/</a>, also check out the lab manual for more specific things about doing various stats in R (also in draft right now) <a href="https://crumplab.github.io/statisticsLab/" class="uri">https://crumplab.github.io/statisticsLab/</a></li>
-<li>Daniell Navarro recently made this website for introducing R, it’s great, check it out (also made using this R markdown process): <a href="http://compcogscisydney.org/psyr/" class="uri">http://compcogscisydney.org/psyr/</a></li>
-<li>Check out my slightly older programming book that also introduces R <a href="https://crumplab.github.io/programmingforpsych/" class="uri">https://crumplab.github.io/programmingforpsych/</a></li>
-<li>This is the definitive guide for all things R Markdown (you will find this very useful as you get better at this skill): <a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a></li>
+<li><p>help(topic)</p></li>
+<li><p>?topic</p></li>
+<li>ls()</li>
+<li>dir()</li>
+<li><p>list.files()</p></li>
 </ol>
+</div>
+<div id="input-and-output" class="section level2">
+<h2>Input and output</h2>
+<p>save()</p>
+<p>load()</p>
+<p>data()</p>
+<p>library() -This function summons up a pre-loaded package and applying it to subsequent code</p>
+<p>read.table() read.csv() scan()</p>
+<p>print() -This function analyzes the results of your code (executing all the commands) cat() write.table()</p>
+</div>
+<div id="data-creation" class="section level2">
+<h2>Data Creation</h2>
+<p>c() -This function is used to combine elements (factors in a vectore for example)</p>
+<p>from:to (where from and to are replaced with numbers, e.g. 1:10) seq()</p>
+<p>rep()</p>
+<p>data.frame() -This allows one to enter specific groups of data values</p>
+<p>list() matrix() factor() rbind() cbind()</p>
+</div>
+<div id="slicing-and-extracting-data-indexing-vectors" class="section level2">
+<h2>Slicing and extracting data indexing vectors</h2>
+<p>x[n] nth element x[-n] all but nth element x[1:n] first n elements x[-(1:n)] elements from n+1 to the end x[c(1,4,2)] specific elements x[“name”] elements named “name” x[x&gt;3] all elements greater than 3 x[x &gt; 3 &amp; x &lt; 5] all elements between 3 and 5 x[x %in% c(“a”,“and”,“the”)] all elements in given set</p>
+</div>
+<div id="indexing-lists" class="section level2">
+<h2>Indexing lists</h2>
+<p>x[n] list with elements n x[[n]] nt h element of the list x[[“name”]] element of the list named “name” x$name id.</p>
+</div>
+<div id="indexing-matrices" class="section level2">
+<h2>Indexing matrices</h2>
+<p>x[i,j] element at row i, column j x[i,] row i x[,j] column j x[,c(1,3)] columns 1 and 3 x[“name”,] row named “name” Indexing data frames (matrix indexing plus the following) x[[“name”]] column named “name” x$nameid.</p>
+</div>
+<div id="variable-conversion" class="section level2">
+<h2>Variable conversion</h2>
+<p>as.data.frame(x) as.numeric(x) as.logical(x) as.character(x)</p>
+</div>
+<div id="variable-information" class="section level2">
+<h2>Variable information</h2>
+<p>is.na(x) is.null(x) is.data.frame(x) is.numeric(x) is.character(x) length(x) dim(x) dimnames(x) nrow(x) ncol(x) class() attributes()</p>
+</div>
+<div id="data-selection-and-manipulation" class="section level2">
+<h2>Data selection and manipulation</h2>
+<p>which.max() which.min() which() sort() unique() table() sample() Math max() min() range() sum() mean() median() var() sd() cor() round() abs()</p>
+</div>
+<div id="matrices" class="section level2">
+<h2>Matrices</h2>
+<p>t() diag() rowSums() colSums() rowMeans() colMeans()</p>
+</div>
+<div id="advanced-data-processing" class="section level2">
+<h2>Advanced Data processing</h2>
+<p>apply() aggregate() Strings paste() strsplit() tolower() toupper Plotting hist() plot() Distributions</p>
+<p>rnorm() -This function inserts a normal distribution</p>
+<p>runif()</p>
+</div>
+<div id="programming" class="section level2">
+<h2>Programming</h2>
+<p>show that you can define a function show that you can write a for loop show that you can write a while loop show that you can write an if else statement Explain what return() does inside a function, show you can use it Explain what break() does, show you can use it</p>
+</div>
+<div id="installing-some-packages" class="section level2">
+<h2>Installing some packages</h2>
+<p>Use the packages tab in R-studio to install these packages. You will need to be connected to the internet when you do this. If you are installing on your laptop, or on R-studio Cloud, then these packages will not need to installed again.</p>
+<p>ggplot2 dplyr shiny data.table reshape2 stringr</p>
+</div>
 </div>
 
 

@@ -9,9 +9,11 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Annie" />
 
+<meta name="date" content="2019-03-18" />
 
-<title>Resources</title>
+<title>ggplot Graphs</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -314,27 +316,77 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Resources</h1>
+<h1 class="title toc-ignore">ggplot Graphs</h1>
+<h4 class="author"><em>Annie</em></h4>
+<h4 class="date"><em>March 18, 2019</em></h4>
 
 </div>
 
 
-<div id="r-and-r-studio" class="section level3">
-<h3>R and R-Studio</h3>
-<p><a href="http://www.r-project.org">R</a> is a free open-source programming language that can be used for statistical analysis, data-simulation, graphing, and lots of other stuff. Another free program is <a href="http://www.rstudio.com">R-studio</a>, that provides a nice graphic interface for R. Download R first, then download R-studio. Both can run on PCs, Macs or Linux. Students will be learning R in the stats labs using the lab manual <a href=""></a>.</p>
-</div>
-<div id="additional-r-resources" class="section level3">
-<h3>Additional R resources</h3>
-<ol style="list-style-type: decimal">
-<li>Google is great, Google your problem</li>
-<li><a href="https://stackoverflow.com">Stackoverflow</a> is great, google will often take you there because someone has already asked your question, and someone else has answered, usually many people have answered your question many ways.</li>
-<li>Danielle Navarro wrote a <a href="https://compcogscisydney.org/learning-statistics-with-r/">free Psych Stats textbook using R</a>, it’s worth checking out (some of our textbook are based on Danielle’s)</li>
-<li>I am currently writing another stats textbook (incorporating some of the above). You can read it while it’s being made right here <a href="https://crumplab.github.io/statistics/" class="uri">https://crumplab.github.io/statistics/</a>, also check out the lab manual for more specific things about doing various stats in R (also in draft right now) <a href="https://crumplab.github.io/statisticsLab/" class="uri">https://crumplab.github.io/statisticsLab/</a></li>
-<li>Daniell Navarro recently made this website for introducing R, it’s great, check it out (also made using this R markdown process): <a href="http://compcogscisydney.org/psyr/" class="uri">http://compcogscisydney.org/psyr/</a></li>
-<li>Check out my slightly older programming book that also introduces R <a href="https://crumplab.github.io/programmingforpsych/" class="uri">https://crumplab.github.io/programmingforpsych/</a></li>
-<li>This is the definitive guide for all things R Markdown (you will find this very useful as you get better at this skill): <a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a></li>
-</ol>
-</div>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code>factor_one &lt;- rep(as.factor(c(&quot;No Transient&quot;,&quot;Transient&quot;)),2)
+factor_two &lt;- rep(as.factor(c(&quot;Outside&quot;,&quot;Inside&quot;)),2)
+dv_means &lt;- c(304,300,290,280)
+dv_SEs   &lt;- c(4,3.4,4,3)
+plot_df &lt;- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two))+
+  geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)</code></pre>
+<p><img src="ggplotgraphs_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>library(ggplot2)
+factor_one &lt;- rep(as.factor(c(&quot;No Transient&quot;,&quot;Transient&quot;)),2)
+factor_two &lt;- rep(as.factor(c(&quot;Outside&quot;,&quot;Inside&quot;)),2)
+dv_means &lt;- c(304,290,300,280)
+dv_SEs   &lt;- c(4,3.4,4,3)
+plot_df &lt;- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two))+
+  geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)</code></pre>
+<p><img src="ggplotgraphs_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>library(ggplot2)
+manipulation &lt;- as.factor(c(&quot;-25&quot;,&quot;-8.5&quot;,&quot;8.5&quot;, &quot;25&quot;))
+dv_means &lt;- c(4.5,4.6,4.8,5)
+dv_SEs   &lt;- c(4,3.4,4,4)
+plot_df &lt;- data.frame(factor_one,
+                      dv_means,
+                      dv_SEs)
+ggplot(plot_df, aes(x=manipulation,y=dv_means, group=1))+
+  geom_point()+
+  geom_line()
+ggplot(plot_df, aes(x=factor_one,y=dv_means, group=1))+
+  geom_point()+
+  geom_line()+
+  geom_errorbar(aes(ymin=dv_means-dv_SEs,
+                    ymax=dv_means+dv_SEs),
+                width=.2)
+  coord_cartesian(ylim=c(0,100))+
+  xlab(&quot;x-axis label&quot;)+
+  ylab(&quot;y-axis label&quot;)+
+  ggtitle(&quot;Male Faces &quot;)+
+  theme_classic(base_size=12)+
+  theme(plot.title = element_text(hjust = 0.5))</code></pre>
+<pre class="r"><code>factor_one &lt;- rep(as.factor(c(&quot;4:6&quot;,&quot;6:9&quot;,&quot;4:9&quot;)),2)
+factor_two &lt;- rep(as.factor(c(&quot;Wide Base&quot;,&quot;Wide Top&quot;)),3)
+dv_means &lt;- c(15.5,16.2,16.5,15.1,16.5,17.8)
+dv_SEs   &lt;- c(4,3.4,4,3,2,4)
+plot_df &lt;- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two))+
+  geom_bar(stat=&quot;identity&quot;, position=&quot;dodge&quot;)</code></pre>
+<p><img src="ggplotgraphs_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 
 
 

@@ -10,6 +10,12 @@ navbar:
       href: Morepractice.html
     - text: "Dictionary"
       href: dictionary.html
+    - text: "Class Notes"
+      href: classnotes.html
+    - text:  "ggplot Graphs"
+      href: ggplotgraphs.html
+    - text: "Data Wrangling"
+      href: datawrangling.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"

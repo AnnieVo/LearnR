@@ -20,22 +20,35 @@ output:
 
 ##Input and output
 save()
+
 load()
+
 data()
+
 library()
+-This function summons up a pre-loaded package and applying it to subsequent code
+
 read.table()
 read.csv()
 scan()
+
 print()
+-This function analyzes the results of your code (executing all the commands)
 cat()
 write.table()
 
 ##Data Creation
 c()
+-This function is used to combine elements (factors in a vectore for example)
+
 from:to (where from and to are replaced with numbers, e.g. 1:10)
 seq()
+
 rep()
+
 data.frame()
+-This allows one to enter specific groups of data values
+
 list()
 matrix()
 factor()
@@ -130,7 +143,10 @@ Plotting
 hist()
 plot()
 Distributions
+
 rnorm()
+-This function inserts a normal distribution
+
 runif()
 
 ##Programming
