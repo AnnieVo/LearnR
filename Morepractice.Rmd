@@ -66,3 +66,5 @@ runif(a, min=1, max=500)
 
 Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation
 
+<<<<<<< HEAD
+

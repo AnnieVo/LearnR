@@ -15,7 +15,9 @@ output:
 2. ?topic
 
 3. ls()
+
 4. dir()
+
 5. list.files()
 
 ##Input and output
@@ -26,33 +28,72 @@ load()
 data()
 
 library()
+<<<<<<< HEAD
 -This function summons up a pre-loaded package and applying it to subsequent code
 
+=======
+-This code allows you to access a package and insert it into your code. Then it allows your package to work for the code chunk.
+ex.
+```{r}
+library(ggplot2)
+Names <- rep(c("Dara", "Azalea", "Barbi", "Rowena", "Fiona"),each=2)
+MF <- rnorm(10, 45, 25)
+Condition <- rep(c("Social", "Nonsocial"), 5)
+Aversity <- rep(c("A", "N_A"), times=c(4,6))
+plot_df <- data.frame (Names, MF, Condition, Aversity)
+
+ggplot(plot_df, aes(x=Condition, y=MF, group=Names, 
+                    linetype=Aversity))
+
+```
+>>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 read.table()
+
 read.csv()
+
 scan()
 
 print()
+<<<<<<< HEAD
 -This function analyzes the results of your code (executing all the commands)
+=======
+
+>>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 cat()
+
 write.table()
 
 ##Data Creation
 c()
+<<<<<<< HEAD
 -This function is used to combine elements (factors in a vectore for example)
+=======
+>>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 
 from:to (where from and to are replaced with numbers, e.g. 1:10)
+
 seq()
 
 rep()
 
 data.frame()
+<<<<<<< HEAD
 -This allows one to enter specific groups of data values
 
+=======
+This function creates a group of data
+```{r}
+data.frame(1, 2, 3, 5)
+```
+>>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 list()
+
 matrix()
+
 factor()
+
 rbind()
+
 cbind()
 
 ##Slicing and extracting data indexing vectors

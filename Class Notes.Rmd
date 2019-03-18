@@ -1,7 +1,11 @@
 ---
 title: "Class Notes"
 author: "Annie"
+<<<<<<< HEAD
 date: "March 18, 2019"
+=======
+date: "February 25, 2019"
+>>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 output: html_document
 ---
 
@@ -9,6 +13,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<<<<<<< HEAD
 March 18, 2019
 
 #one sample t-test
@@ -90,4 +95,203 @@ For a between-subjects 2 factor ANOVA
 aov_out<-(DV~Factor1*Factor2, all_data)
 2. compile summary
 summary(aov_out)
+=======
+February 25, 2019
+
+##Data-frames
+Getting data into R somehow (in various formats). The first goal is to get the data into a "data-frame format"
+
+##What is a data-frame?
+It is a table, like a spreadsheet--it has rows and columns
+
+a<-data.frame()
+
+First independenty create the columns desired:
+
+```{r}
+Names <- c("Peter", "Paul", "Mary")
+Ages <- c(1000, 1200, 100)
+Gender <-c("M", "M", "F")
+
+my_df <- data.frame(Names, 
+                    Ages,
+                    Gender)
+```
+                    
+To view the table that you created, click on the corrosponding play button in the global environment
+
+You must have the same number of columns and rows for all data SO if you are missing some information then you must add an "NA" where data or labels are missing.
+
+```{r}
+Names <- c("Peter", "Paul", "Mary", NA)
+Ages <- c(1000, 1200, 100, 50)
+Gender <-c("M", "M", "F", NA)
+
+my_df <- data.frame(Names, 
+                    Ages,
+                    Gender)
+```
+
+Data must be organized in a table in long form...
+
+You can identify the columns of your graph by typing my_df$Names (type $ to pull up all columns)
+
+Let's say you don't like the category your variable falls into (example: names are a factor and you want to change the category)
+
+Then do 
+my_df<-as.character(my_df$Names)
+
+```{r}
+a <- c(1,2,3,2,3,4,5,4)
+b <- c(4,3,4,3,2,1,2,3)
+plot_df <- data.frame(a,b)
+
+ggplot(plot_df, aes(x=a,y=b))+
+  geom_point()
+```
+
+In order to use ggplot2, you must click it on in the side window. Search for the package and click it on before using it.
+
+```{r}
+ggplot(plot_df, aes(x=a,y=b))+
+  geom_point()
+```
+```{r}
+ggplot(plot_df, aes(x=a,y=b))+
+  geom_point(size=2)+ #you can change the parameters 
+  geom_smooth(method=lm)+
+  coord_cartesian(xlim=c(0,7),ylim=c(0,10))+ #this is where you change the limits of th graph
+  xlab("x-axis label")+ #you can edit the names of the axis, or title etc
+  ylab("y-axis label")+
+  ggtitle("I made a scatterplot")+
+  theme_classic(base_size=12)+ #base size is the size of the font
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Be careful, the font size stays the size it is set at even if the overall graph is shrunken.
+
+```{r}
+library(ggplot2)
+factor_one <- as.factor(c("A","B","C"))
+dv_means <- c(20,30,40)
+dv_SEs   <- c(4,3.4,4)
+plot_df <- data.frame(factor_one,
+                      dv_means,
+                      dv_SEs)
+
+# basic bar graph
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means))+
+  geom_bar(stat="identity") #this means list the data as is-other commands can alter data
+
+```
+
+The geom_bar command is what creates the bars in the graph
+Step one: create the set up of x and y
+Step two: fill in the details of each variable
+Step three: type in command
+
+If you want to add error bars to your graph, you must define your parameters or else it will not magically create it (must define the minimum and maximum)
+
+```{r}
+library(ggplot2)
+ggplot(plot_df, aes(x=factor_one,y=dv_means))+
+  geom_bar(stat="identity")+
+  geom_errorbar(aes(ymin=dv_means-dv_SEs,
+                    ymax=dv_means+dv_SEs),
+                width=.2)+
+  coord_cartesian(ylim=c(0,100))+
+  xlab("x-axis label")+
+  ylab("y-axis label")+
+  ggtitle("I made a bar graph")+
+  theme_classic(base_size=12)+
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+How about a graph with 6 total conditions
+
+```{r}
+library(ggplot2)
+factor_one <- rep(as.factor(c("A","B","C")),2) #use rep to repeat and then ,# of times you want it to repeat
+factor_two <- rep(as.factor(c("IIA","IIB")),3)
+dv_means <- c(20,30,40,20,40,40)
+dv_SEs   <- c(4,3.4,4,3,2,4)
+plot_df <- data.frame(factor_one,
+                      factor_two,
+                      dv_means,
+                      dv_SEs)
+
+# basic bar graph
+
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two, #by adding group factor then you can combine 2 factors
+                    color=factor_two,
+                    fill=factor_two))+ #color factor refers to the border color and fill refers to entire color of the bar
+  geom_bar(stat="identity", position="dodge") #position=dodge makes it side by side bars, without it the bars will be stacked 
+
+```
+
+```{r, eval=FALSE}
+
+library(ggplot2)
+ggplot(plot_df, aes(x=factor_one,y=dv_means,
+                    group=factor_two,
+                    color=factor_two,
+                    fill=factor_two))+
+  geom_bar(stat="identity", position="dodge")+
+  geom_errorbar(aes(ymin=dv_means-dv_SEs,
+                    ymax=dv_means+dv_SEs),
+                position=position_dodge(width=0.9), #the position=position-dodge makes the error bars go in the correct place
+                width=.2,
+                color="black")+
+  coord_cartesian(ylim=c(0,100))+
+  xlab("x-axis label")+
+  ylab("y-axis label")+
+  ggtitle("Bar graph 2 factors")+
+  theme_classic(base_size=12)+
+  theme(plot.title = element_text(hjust = 0.5))
+
+
+
+
+Use facet_wrap(tilde...) to break data into two graphs
+
+
+
+
+Example
+
+```{r}
+library(ggplot2)
+Names <- rep(c("Dara", "Azalea", "Barbi", "Rowena", "Fiona"),each=2)
+MF <- rnorm(10, 45, 25)
+Condition <- rep(c("Social", "Nonsocial"), 5)
+Aversity <- rep(c("A", "N_A"), times=c(4,6))
+plot_df <- data.frame (Names, MF, Condition, Aversity)
+
+ggplot(plot_df, aes(x=Condition, y=MF, group=Names, 
+                    linetype=Aversity))+ #linetype function must be in the aesthetic definitions
+  geom_line()+
+  geom_text(label=Names)+
+  theme_classic()
+```
+
+
+March 11, 2019
+
+```{r, eval=FALSE}
+library(dplyr) 
+df <- starwars 
+
+```
+
+;
+```{r}
+
+library(dplyr)
+df <- starwars
+
+```
+>>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 
