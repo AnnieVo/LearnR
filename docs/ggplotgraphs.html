@@ -11,15 +11,9 @@
 
 <meta name="author" content="Annie" />
 
-<<<<<<< HEAD
 <meta name="date" content="2019-03-18" />
 
 <title>ggplot Graphs</title>
-=======
-<meta name="date" content="2019-03-11" />
-
-<title>ggplot graphs</title>
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -293,26 +287,22 @@ $(document).ready(function () {
   <a href="Journal.html">Journal</a>
 </li>
 <li>
-<<<<<<< HEAD
   <a href="Morepractice.html">More Practice</a>
 </li>
 <li>
-  <a href="dictionary.html">Dictionary</a>
+  <a href="Dictionary.html">Dictionary</a>
 </li>
 <li>
-  <a href="classnotes.html">Class Notes</a>
+  <a href="Class_Notes.html">Class Notes</a>
 </li>
 <li>
   <a href="ggplotgraphs.html">ggplot Graphs</a>
 </li>
 <li>
-  <a href="datawrangling.html">Data Wrangling</a>
-=======
-  <a href="Class_Practice">More Practice</a>
+  <a href="Data_Wrangling.html">Data Wrangling</a>
 </li>
 <li>
-  <a href="index.html">Dictionary</a>
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
+  <a href="Statistics.html">Statistics</a>
 </li>
 <li>
   <a href="Links.html">Links</a>
@@ -329,27 +319,16 @@ $(document).ready(function () {
 
 
 
-<<<<<<< HEAD
 <h1 class="title toc-ignore">ggplot Graphs</h1>
 <h4 class="author"><em>Annie</em></h4>
 <h4 class="date"><em>March 18, 2019</em></h4>
-=======
-<h1 class="title toc-ignore">ggplot graphs</h1>
-<h4 class="author"><em>Annie</em></h4>
-<h4 class="date"><em>March 11, 2019</em></h4>
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 
 </div>
 
 
-<<<<<<< HEAD
-<pre class="r"><code>library(ggplot2)</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</code></pre>
-<pre class="r"><code>factor_one &lt;- rep(as.factor(c(&quot;No Transient&quot;,&quot;Transient&quot;)),2)
-=======
+<p>=======</p>
 <pre class="r"><code>library(ggplot2)
 factor_one &lt;- rep(as.factor(c(&quot;No Transient&quot;,&quot;Transient&quot;)),2)
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 factor_two &lt;- rep(as.factor(c(&quot;Outside&quot;,&quot;Inside&quot;)),2)
 dv_means &lt;- c(304,300,290,280)
 dv_SEs   &lt;- c(4,3.4,4,3)
@@ -357,10 +336,7 @@ plot_df &lt;- data.frame(factor_one,
                       factor_two,
                       dv_means,
                       dv_SEs)
-<<<<<<< HEAD
-=======
 
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two))+
@@ -375,10 +351,7 @@ plot_df &lt;- data.frame(factor_one,
                       factor_two,
                       dv_means,
                       dv_SEs)
-<<<<<<< HEAD
-=======
 
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two))+
@@ -391,10 +364,8 @@ dv_SEs   &lt;- c(4,3.4,4,4)
 plot_df &lt;- data.frame(factor_one,
                       dv_means,
                       dv_SEs)
-<<<<<<< HEAD
-=======
 
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
+
 ggplot(plot_df, aes(x=manipulation,y=dv_means, group=1))+
   geom_point()+
   geom_line()
@@ -418,11 +389,7 @@ plot_df &lt;- data.frame(factor_one,
                       factor_two,
                       dv_means,
                       dv_SEs)
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two))+

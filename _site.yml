@@ -7,19 +7,17 @@ navbar:
     - text: "Journal"
       href: Journal.html
     - text: "More Practice"
-      href: Class_Practice
+      href: Morepractice.html
     - text: "Dictionary"
-<<<<<<< HEAD
-      href: dictionary.html
+      href: Dictionary.html
     - text: "Class Notes"
-      href: classnotes.html
-    - text:  "ggplot Graphs"
+      href: Class_Notes.html
+    - text: "ggplot Graphs"
       href: ggplotgraphs.html
     - text: "Data Wrangling"
-      href: datawrangling.html
-=======
-      href: index.html
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
+      href: Data_Wrangling.html
+    - text: "Statistics"
+      href: Statistics.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"

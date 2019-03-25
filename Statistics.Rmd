@@ -1,0 +1,159 @@
+---
+title: "Statistics"
+author: "Annie"
+date: "March 25, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+March 25, 2019
+
+# Sampling distributions
+
+```{r}
+rnorm(n=5,mean=0,sd=1)
+```
+
+```{r}
+hist(rnorm(n=10000,mean=0,sd=1)) #hist for histogram and rnorm for normal distribution
+
+mean(rnorm(n=10,mean=0,sd=1))
+sd(rnorm(n=100000,mean=0,sd=1))
+
+mean(rnorm(n=10,mean=0,sd=1))
+```
+
+```{r}
+#sample mean
+#n=10
+save_means<-c()
+for(i in 1:1000){
+save_means[i]<-mean(rnorm(n=10,mean=0,sd=1))
+}
+  
+
+```
+
+```{r}
+#replicate
+
+replicate(1000,mean(rnorm(n=10,mean=0,sd=1)))
+
+hist(replicate(10000,sd(rnorm(n=10,mean=0,sd=1))))
+
+hist(save_means)
+
+SEM<-1/sqrt(10)
+SEM
+
+sd(save_means)
+```
+##Null distribution of mean difference
+
+```{r}
+#long way of doing it
+A <- rnorm(10,0,1)
+B <- rnorm(10,0,1)
+MD <- mean(A)-mean(B)
+MD
+
+#lets do a loop to create 10000 groups
+mean_differences <- replicate(10000, mean(rnorm(10,0,1))-mean(rnorm(10,0,1)))
+
+sort(mean_differences)[95000] #sort will order all the smallest values to the largest values-includes all 10000 numbers. The cutoff numbers in the bracket are found by .95*10000 for critical value
+
+sort(mean_differences)[2500]
+sort(mean_differences)[97500]
+
+hist(mean_differences)
+```
+## t-distribution
+
+```{r}
+#pt is getting a quantile from a t-test
+#qt is getting a p-value from a t-test
+
+pt(q=2,df=9)
+
+#find the probability of t(9) >= .5,1,1.5,2,2.5
+
+pt(q=c(.5,1,1.5,2,2.5),df=9) #pt function provides the lower tail (left side) of the graph
+
+t.test(rnorm(10,0,1),mu=0)$statistic #$statistic separates the t-value and lists it alone (without t-test results)
+
+t_s <- replicate(10000,t.test(rnorm(10,0,1),mu=0)$statistic)
+
+hist(t_s)
+
+sim_ps <- c(length(t_s))
+
+length(t_s[t_s < .5])/10000
+length(t_s[t_s < 1])/10000
+length(t_s[t_s < 1.5])/10000
+length(t_s[t_s < 2])/10000
+length(t_s[t_s < 2.5])/10000
+
+
+
+```
+
+#Correlataion
+
+```{r}
+#create a sampling distribution for correlations we can get in a specific situation
+
+cor(rnorm(100,0,1),rnorm(100,0,1))#use cor function to correlate two sets
+
+replicate(10000,cor(rnorm(100,0,1),rnorm(100,0,1)))
+
+hist(replicate(1e+05,cor(rnorm(100,0,1),rnorm(100,0,1))))
+
+sim_rs <- replicate(10000,cor(rnorm(100,0,1),rnorm(100,0,1)))
+
+sort(abs(sim_rs))[95000]
+```
+
+#F simulation
+
+```{r}
+A <- c(1,2,3,4)
+B <- c(3,4,5,6)
+C <- c(5,6,7,8)
+
+conds<- rep(c("A","B","C"), each=4)
+DV <- c(A,B,C)
+df <- data.frame(conds, DV)
+summary (aov(DV~conds,df))
+```
+
+```{r}
+run_anova <- function(){
+
+A <- rnorm(4,0,1)
+B <- rnorm(4,0,1)
+C <- rnorm(4,0,1)
+
+conds<- rep(c("A","B","C"), each=4)
+DV <- c(A,B,C)
+df <- data.frame(conds, DV)
+summary (aov(DV~conds,df))
+
+sum_out <- summary(aov(DV~conds,df))
+sum_out[[1]]$`F value`[1]
+
+return(sum_out[[1]]$`F value`[1])
+}
+
+
+save_fs <- replicate(10000,run_anova())
+
+
+hist(save_fs)
+
+sort(save_fs)[9500]
+
+qf(.95,2,9)
+```

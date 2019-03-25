@@ -1,13 +1,7 @@
 ---
-<<<<<<< HEAD
 title: "ggplot Graphs"
 author: "Annie"
 date: "March 18, 2019"
-=======
-title: "ggplot graphs"
-author: "Annie"
-date: "March 11, 2019"
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 output: html_document
 ---
 
@@ -15,10 +9,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<<<<<<< HEAD
+
 
 =======
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
+
 ```{r}
 library(ggplot2)
 factor_one <- rep(as.factor(c("No Transient","Transient")),2)
@@ -29,10 +23,7 @@ plot_df <- data.frame(factor_one,
                       factor_two,
                       dv_means,
                       dv_SEs)
-<<<<<<< HEAD
-=======
 
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two))+
@@ -49,10 +40,7 @@ plot_df <- data.frame(factor_one,
                       factor_two,
                       dv_means,
                       dv_SEs)
-<<<<<<< HEAD
-=======
 
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two))+
@@ -67,10 +55,8 @@ dv_SEs   <- c(4,3.4,4,4)
 plot_df <- data.frame(factor_one,
                       dv_means,
                       dv_SEs)
-<<<<<<< HEAD
-=======
 
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
+
 ggplot(plot_df, aes(x=manipulation,y=dv_means, group=1))+
   geom_point()+
   geom_line()
@@ -98,17 +84,9 @@ plot_df <- data.frame(factor_one,
                       factor_two,
                       dv_means,
                       dv_SEs)
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 ggplot(plot_df, aes(x=factor_one,y=dv_means,
                     group=factor_two,
                     color=factor_two))+
   geom_bar(stat="identity", position="dodge")
 ```
-<<<<<<< HEAD
-=======
-
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085

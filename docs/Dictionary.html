@@ -287,26 +287,22 @@ $(document).ready(function () {
   <a href="Journal.html">Journal</a>
 </li>
 <li>
-<<<<<<< HEAD
   <a href="Morepractice.html">More Practice</a>
 </li>
 <li>
-  <a href="dictionary.html">Dictionary</a>
+  <a href="Dictionary.html">Dictionary</a>
 </li>
 <li>
-  <a href="classnotes.html">Class Notes</a>
+  <a href="Class_Notes.html">Class Notes</a>
 </li>
 <li>
   <a href="ggplotgraphs.html">ggplot Graphs</a>
 </li>
 <li>
-  <a href="datawrangling.html">Data Wrangling</a>
-=======
-  <a href="Class_Practice">More Practice</a>
+  <a href="Data_Wrangling.html">Data Wrangling</a>
 </li>
 <li>
-  <a href="index.html">Dictionary</a>
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
+  <a href="Statistics.html">Statistics</a>
 </li>
 <li>
   <a href="Links.html">Links</a>
@@ -337,13 +333,8 @@ $(document).ready(function () {
 <ol style="list-style-type: decimal">
 <li><p>help(topic)</p></li>
 <li><p>?topic</p></li>
-<<<<<<< HEAD
-<li>ls()</li>
-<li>dir()</li>
-=======
 <li><p>ls()</p></li>
 <li><p>dir()</p></li>
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 <li><p>list.files()</p></li>
 </ol>
 </div>
@@ -352,20 +343,9 @@ $(document).ready(function () {
 <p>save()</p>
 <p>load()</p>
 <p>data()</p>
-<<<<<<< HEAD
-<p>library() -This function summons up a pre-loaded package and applying it to subsequent code</p>
-<p>read.table() read.csv() scan()</p>
-<p>print() -This function analyzes the results of your code (executing all the commands) cat() write.table()</p>
-</div>
-<div id="data-creation" class="section level2">
-<h2>Data Creation</h2>
-<p>c() -This function is used to combine elements (factors in a vectore for example)</p>
-<p>from:to (where from and to are replaced with numbers, e.g. 1:10) seq()</p>
-<p>rep()</p>
-<p>data.frame() -This allows one to enter specific groups of data values</p>
-<p>list() matrix() factor() rbind() cbind()</p>
-=======
-<p>library() -This code allows you to access a package and insert it into your code. Then it allows your package to work for the code chunk. ex.</p>
+<p>library()</p>
+<p>-This function summons up a pre-loaded package and applying it to subsequent code</p>
+<p>======= -This code allows you to access a package and insert it into your code. Then it allows your package to work for the code chunk. ex.</p>
 <pre class="r"><code>library(ggplot2)
 Names &lt;- rep(c(&quot;Dara&quot;, &quot;Azalea&quot;, &quot;Barbi&quot;, &quot;Rowena&quot;, &quot;Fiona&quot;),each=2)
 MF &lt;- rnorm(10, 45, 25)
@@ -375,20 +355,29 @@ plot_df &lt;- data.frame (Names, MF, Condition, Aversity)
 
 ggplot(plot_df, aes(x=Condition, y=MF, group=Names, 
                     linetype=Aversity))</code></pre>
-<p><img src="Dictionary_files/figure-html/unnamed-chunk-1-1.png" width="672" /> read.table()</p>
+<p><img src="Dictionary_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>read.table()</p>
 <p>read.csv()</p>
 <p>scan()</p>
 <p>print()</p>
+</div>
+</div>
+<div id="this-function-analyzes-the-results-of-your-code-executing-all-the-commands" class="section level1">
+<h1>-This function analyzes the results of your code (executing all the commands)</h1>
 <p>cat()</p>
 <p>write.table()</p>
-</div>
 <div id="data-creation" class="section level2">
 <h2>Data Creation</h2>
 <p>c()</p>
+</div>
+</div>
+<div id="this-function-is-used-to-combine-elements-factors-in-a-vectore-for-example" class="section level1">
+<h1>-This function is used to combine elements (factors in a vectore for example)</h1>
 <p>from:to (where from and to are replaced with numbers, e.g. 1:10)</p>
 <p>seq()</p>
 <p>rep()</p>
-<p>data.frame() This function creates a group of data</p>
+<p>data.frame() &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD -This allows one to enter specific groups of data values</p>
+<p>======= This function creates a group of data</p>
 <pre class="r"><code>data.frame(1, 2, 3, 5)</code></pre>
 <pre><code>##   X1 X2 X3 X5
 ## 1  1  2  3  5</code></pre>
@@ -397,8 +386,6 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 <p>factor()</p>
 <p>rbind()</p>
 <p>cbind()</p>
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
-</div>
 <div id="slicing-and-extracting-data-indexing-vectors" class="section level2">
 <h2>Slicing and extracting data indexing vectors</h2>
 <p>x[n] nth element x[-n] all but nth element x[1:n] first n elements x[-(1:n)] elements from n+1 to the end x[c(1,4,2)] specific elements x[“name”] elements named “name” x[x&gt;3] all elements greater than 3 x[x &gt; 3 &amp; x &lt; 5] all elements between 3 and 5 x[x %in% c(“a”,“and”,“the”)] all elements in given set</p>
@@ -421,7 +408,9 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 </div>
 <div id="data-selection-and-manipulation" class="section level2">
 <h2>Data selection and manipulation</h2>
-<p>which.max() which.min() which() sort() unique() table() sample() Math max() min() range() sum() mean() median() var() sd() cor() round() abs()</p>
+<p>which.max() which.min() which() sort() unique() table() sample() Math max() min() range() sum()</p>
+<p>mean() creates the mean</p>
+<p>median() var() sd() cor() round() abs()</p>
 </div>
 <div id="matrices" class="section level2">
 <h2>Matrices</h2>
@@ -429,13 +418,9 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 </div>
 <div id="advanced-data-processing" class="section level2">
 <h2>Advanced Data processing</h2>
-<<<<<<< HEAD
 <p>apply() aggregate() Strings paste() strsplit() tolower() toupper Plotting hist() plot() Distributions</p>
 <p>rnorm() -This function inserts a normal distribution</p>
 <p>runif()</p>
-=======
-<p>apply() aggregate() Strings paste() strsplit() tolower() toupper Plotting hist() plot() Distributions rnorm() runif()</p>
->>>>>>> 08da14cefd04c3ba5ec8158ccfe4ab4ab6dd4085
 </div>
 <div id="programming" class="section level2">
 <h2>Programming</h2>

@@ -9,6 +9,7 @@ output:
     toc_depth: 1
     #code_folding: hide
 ---
+knitr::opts_chunk$set(echo = TRUE,error = TRUE)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
