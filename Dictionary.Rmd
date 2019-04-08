@@ -10,7 +10,6 @@ output: html_document
 ##General bits
 1. help(topic)
 
-
 2. ?topic
 
 3. ls()
@@ -20,18 +19,20 @@ output: html_document
 5. list.files()
 
 ##Input and output
-save()
+1. save()
 
-load()
+2. load()
 
+3. data()
+This function allows you to search for pre-made data sets in r
+ex.
+```{r}
+?data
 data()
+```
 
-library()
-
--This function summons up a pre-loaded package and applying it to subsequent code
-
-=======
--This code allows you to access a package and insert it into your code. Then it allows your package to work for the code chunk.
+4. library()
+This code allows you to access a package and insert it into your code. Then it allows your package to work for the code chunk.
 ex.
 ```{r}
 library(ggplot2)
@@ -46,54 +47,51 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 
 ```
 
-read.table()
+5. read.table()
 
-read.csv()
+6. read.csv()
 
-scan()
+7. scan()
 
-print()
+8. print()
+This function analyzes the results of your code (executing all the commands)
+ex.
+```{r}
+data.frame(1,2,3,4)
+print(data.frame())
+```
 
--This function analyzes the results of your code (executing all the commands)
-=======
+9. cat()
 
-
-cat()
-
-write.table()
+10. write.table()
 
 ##Data Creation
-c()
-
--This function is used to combine elements (factors in a vectore for example)
-=======
+1. c()
+This function is used to combine elements (factors in a vectore for example)
 
 
-from:to (where from and to are replaced with numbers, e.g. 1:10)
+2. from:to (where from and to are replaced with numbers, e.g. 1:10)
 
-seq()
+3. seq()
 
-rep()
+4. rep()
 
-data.frame()
-<<<<<<< HEAD
--This allows one to enter specific groups of data values
-
-=======
-This function creates a group of data
+5. data.frame()
+This allows one to enter specific groups of data values
+ex.
 ```{r}
 data.frame(1, 2, 3, 5)
 ```
 
-list()
+6. list()
 
-matrix()
+7. matrix()
 
-factor()
+8. factor()
 
-rbind()
+9. rbind()
 
-cbind()
+10. cbind()
 
 ##Slicing and extracting data indexing vectors
 x[n] nth element
@@ -150,16 +148,26 @@ sort()
 unique()
 table()
 sample()
-Math
+
+##Math
 max()
+This sets the maximum value included in a data set (and graph)
+
 min()
+This set the minimum value included in a data set (and graph)
+
 range()
+This determines the range of numbers considered in a graph
+
 sum()
+This function adds all the numbers in a given set
 
 mean()
-creates the mean
+Creates the mean of a given set of number values
 
 median()
+calculates the median of a set of numbers
+
 var()
 sd()
 cor()
@@ -182,13 +190,17 @@ paste()
 strsplit()
 tolower()
 toupper
-Plotting
-hist()
-plot()
-Distributions
 
+##Plotting
+hist()
+This function creates a histogram graph of a given set of data
+
+plot()
+This function creates a plot graph of a given set of data
+
+##Distributions
 rnorm()
--This function inserts a normal distribution
+This function inserts a normal distribution
 
 runif()
 

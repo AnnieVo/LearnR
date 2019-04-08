@@ -340,14 +340,20 @@ $(document).ready(function () {
 </div>
 <div id="input-and-output" class="section level2">
 <h2>Input and output</h2>
-<p>save()</p>
-<p>load()</p>
-<p>data()</p>
-<p>library()</p>
-<p>-This function summons up a pre-loaded package and applying it to subsequent code</p>
-<p>======= -This code allows you to access a package and insert it into your code. Then it allows your package to work for the code chunk. ex.</p>
-<pre class="r"><code>library(ggplot2)
-Names &lt;- rep(c(&quot;Dara&quot;, &quot;Azalea&quot;, &quot;Barbi&quot;, &quot;Rowena&quot;, &quot;Fiona&quot;),each=2)
+<ol style="list-style-type: decimal">
+<li><p>save()</p></li>
+<li><p>load()</p></li>
+<li><p>data() This function allows you to search for pre-made data sets in r ex.</p></li>
+</ol>
+<pre class="r"><code>?data</code></pre>
+<pre><code>## starting httpd help server ... done</code></pre>
+<pre class="r"><code>data()</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>library() This code allows you to access a package and insert it into your code. Then it allows your package to work for the code chunk. ex.</li>
+</ol>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.3</code></pre>
+<pre class="r"><code>Names &lt;- rep(c(&quot;Dara&quot;, &quot;Azalea&quot;, &quot;Barbi&quot;, &quot;Rowena&quot;, &quot;Fiona&quot;),each=2)
 MF &lt;- rnorm(10, 45, 25)
 Condition &lt;- rep(c(&quot;Social&quot;, &quot;Nonsocial&quot;), 5)
 Aversity &lt;- rep(c(&quot;A&quot;, &quot;N_A&quot;), times=c(4,6))
@@ -355,37 +361,43 @@ plot_df &lt;- data.frame (Names, MF, Condition, Aversity)
 
 ggplot(plot_df, aes(x=Condition, y=MF, group=Names, 
                     linetype=Aversity))</code></pre>
-<p><img src="Dictionary_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>read.table()</p>
-<p>read.csv()</p>
-<p>scan()</p>
-<p>print()</p>
+<p><img src="Dictionary_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li><p>read.table()</p></li>
+<li><p>read.csv()</p></li>
+<li><p>scan()</p></li>
+<li><p>print() This function analyzes the results of your code (executing all the commands) ex.</p></li>
+</ol>
+<pre class="r"><code>data.frame(1,2,3,4)</code></pre>
+<pre><code>##   X1 X2 X3 X4
+## 1  1  2  3  4</code></pre>
+<pre class="r"><code>print(data.frame())</code></pre>
+<pre><code>## data frame with 0 columns and 0 rows</code></pre>
+<ol start="9" style="list-style-type: decimal">
+<li><p>cat()</p></li>
+<li><p>write.table()</p></li>
+</ol>
 </div>
-</div>
-<div id="this-function-analyzes-the-results-of-your-code-executing-all-the-commands" class="section level1">
-<h1>-This function analyzes the results of your code (executing all the commands)</h1>
-<p>cat()</p>
-<p>write.table()</p>
 <div id="data-creation" class="section level2">
 <h2>Data Creation</h2>
-<p>c()</p>
-</div>
-</div>
-<div id="this-function-is-used-to-combine-elements-factors-in-a-vectore-for-example" class="section level1">
-<h1>-This function is used to combine elements (factors in a vectore for example)</h1>
-<p>from:to (where from and to are replaced with numbers, e.g. 1:10)</p>
-<p>seq()</p>
-<p>rep()</p>
-<p>data.frame() &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD -This allows one to enter specific groups of data values</p>
-<p>======= This function creates a group of data</p>
+<ol style="list-style-type: decimal">
+<li><p>c() This function is used to combine elements (factors in a vectore for example)</p></li>
+<li><p>from:to (where from and to are replaced with numbers, e.g. 1:10)</p></li>
+<li><p>seq()</p></li>
+<li><p>rep()</p></li>
+<li><p>data.frame() This allows one to enter specific groups of data values ex.</p></li>
+</ol>
 <pre class="r"><code>data.frame(1, 2, 3, 5)</code></pre>
 <pre><code>##   X1 X2 X3 X5
 ## 1  1  2  3  5</code></pre>
-<p>list()</p>
-<p>matrix()</p>
-<p>factor()</p>
-<p>rbind()</p>
-<p>cbind()</p>
+<ol start="6" style="list-style-type: decimal">
+<li><p>list()</p></li>
+<li><p>matrix()</p></li>
+<li><p>factor()</p></li>
+<li><p>rbind()</p></li>
+<li><p>cbind()</p></li>
+</ol>
+</div>
 <div id="slicing-and-extracting-data-indexing-vectors" class="section level2">
 <h2>Slicing and extracting data indexing vectors</h2>
 <p>x[n] nth element x[-n] all but nth element x[1:n] first n elements x[-(1:n)] elements from n+1 to the end x[c(1,4,2)] specific elements x[“name”] elements named “name” x[x&gt;3] all elements greater than 3 x[x &gt; 3 &amp; x &lt; 5] all elements between 3 and 5 x[x %in% c(“a”,“and”,“the”)] all elements in given set</p>
@@ -408,9 +420,17 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 </div>
 <div id="data-selection-and-manipulation" class="section level2">
 <h2>Data selection and manipulation</h2>
-<p>which.max() which.min() which() sort() unique() table() sample() Math max() min() range() sum()</p>
-<p>mean() creates the mean</p>
-<p>median() var() sd() cor() round() abs()</p>
+<p>which.max() which.min() which() sort() unique() table() sample()</p>
+</div>
+<div id="math" class="section level2">
+<h2>Math</h2>
+<p>max() This sets the maximum value included in a data set (and graph)</p>
+<p>min() This set the minimum value included in a data set (and graph)</p>
+<p>range() This determines the range of numbers considered in a graph</p>
+<p>sum() This function adds all the numbers in a given set</p>
+<p>mean() Creates the mean of a given set of number values</p>
+<p>median() calculates the median of a set of numbers</p>
+<p>var() sd() cor() round() abs()</p>
 </div>
 <div id="matrices" class="section level2">
 <h2>Matrices</h2>
@@ -418,8 +438,16 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 </div>
 <div id="advanced-data-processing" class="section level2">
 <h2>Advanced Data processing</h2>
-<p>apply() aggregate() Strings paste() strsplit() tolower() toupper Plotting hist() plot() Distributions</p>
-<p>rnorm() -This function inserts a normal distribution</p>
+<p>apply() aggregate() Strings paste() strsplit() tolower() toupper</p>
+</div>
+<div id="plotting" class="section level2">
+<h2>Plotting</h2>
+<p>hist() This function creates a histogram graph of a given set of data</p>
+<p>plot() This function creates a plot graph of a given set of data</p>
+</div>
+<div id="distributions" class="section level2">
+<h2>Distributions</h2>
+<p>rnorm() This function inserts a normal distribution</p>
 <p>runif()</p>
 </div>
 <div id="programming" class="section level2">

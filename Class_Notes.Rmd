@@ -320,7 +320,7 @@ A <- rnorm(4,0,1)
 B <- rnorm(4,0,1)
 C <- rnorm(4,0,1)
 
-conds<- rep(c("A","B","C"), each=4)
+conds<- rep(c("A","B","C"), each=4)?
 DV <- c(A,B,C)
 df <- data.frame(conds, DV)
 summary (aov(DV~conds,df))
@@ -341,4 +341,36 @@ sort(save_fs)[9500]
 
 qf(.95,2,9)
 ```
+
+#SHINY
+
+From our class site
+
+
+library(shiny)
+
+# USER INTERFACE
+ui <- fluidPage(
+  sidebarLayout(
+    sidebarPanel(
+      # put web page elements here
+    ),
+    mainPanel(
+      # put web page elements here
+    )
+  )
+)
+
+# SERVER
+server <- function(input, output) {
+  
+  # recieve inputs
+  # do things
+  # update the webpage
+  
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+
 
