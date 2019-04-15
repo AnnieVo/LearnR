@@ -373,4 +373,59 @@ server <- function(input, output) {
 # Run the application 
 shinyApp(ui = ui, server = server)
 
+## Optimization
+
+```{r}
+a<-rep(0, 1000)
+class(a) #this creates a class of numbers
+```
+
+```{r}
+a<-as.character(rep(0, 1000))
+object.size(a) #this converts the numbers into characters with quotation marks
+```
+
+```{r}
+a <- as.integer(rep(0,1000))
+object.size(a)
+```
+
+The data.frame class is more intensive than the matrix. The matrix takes the least space, then larger is the data.frame and then the largest is the data.table package. Data.frames can be turned into a data.table and vice-versa.
+
+Ultimately, there are different ways to store data that will determine how much space is taken up on the computer.
+
+```{r}
+Rprof(tmp <- tempfile()) #short for "r profile"-it searches through R and starts measuring how long everything takes to process in R. It then records how long each program takes and stores it into the "tmp" file
+
+a <- matrix(0,nrow=2,ncol=1000)
+for(i in 1:1000){
+  a <- rbind(a,rnorm(1000,0,1)) #rbind is "row bind"
+}
+
+Rprof()
+summaryRprof(tmp)
+```
+
+```{r}
+library(microbenchmark)
+
+
+a<-rnorm(10000,500,25)
+
+microbenchmark(mean(a),
+               sum(a)/length(a))
+
+
+  
+```
+
+With rbind, R makes a copy of your data frame (or matrix), alters it and puts all of that modified stuff back into the original copy. This takes up a lot of memory over time.
+
+If you are finding that the mean of the code is slowing down the processing, you may choose to substitute that with sum(a)/length(a) method.
+
+To speead up code, place rprof in the beginning and end of the code. 
+
+
+a<-data.frame(a=c(0,0))
+b=c(0,0)
 

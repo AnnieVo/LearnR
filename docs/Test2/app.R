@@ -128,4 +128,50 @@ server <- function(input, output) {
 # Run the application 
 shinyApp(ui = ui, server = server)
 
+a <- "brooklyn" #add data sets, packages etc. above ui and then match with code at the bottom that will print it 
+
+library(shiny)
+
+# USER INTERFACE
+ui <- fluidPage(
+  sidebarLayout(
+    sidebarPanel(
+      # displays an action button
+      actionButton("action1", label = "press me")
+    ),
+    mainPanel(
+      # create a plotting object for the webpage
+      plotOutput("someplot")
+    )
+  )
+)
+
+# SERVER
+server <- function(input, output) {
+  
+  d <- reactiveValues()
+  d$count <- 0 #we create this line to create the o value so that we can run it later to count the clicks
+  
+  # make a new plot every time button is clicked  
+  observeEvent(input$action1, {
+    output$someplot <-  renderPlot({
+      hist(rnorm(100,0,1))
+      d$a <- rnorm(10,0,1)
+    })
+    
+    d$count <- d$count+1
+      
+  })
+  
+  observe({
+    print(d$count)
+    print(a)
+  })
+  
+  
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
+
 
