@@ -9,3 +9,54 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE,error = TRUE)
 ```
 
+```{r}
+library(dplyr)
+
+df <- starwars
+
+df$name
+```
+```{r}
+library(dplyr)
+
+df <- starwars
+
+df$height
+```
+```{r}
+library(dplyr)
+
+df <- starwars
+
+df$gender
+```
+```{r}
+library(dplyr)
+
+df <- starwars
+
+df[1,]
+```
+```{r}
+library(dplyr)
+
+df <- starwars
+
+df[ ,4]
+```
+```{r}
+library(dplyr)
+
+df <- starwars
+
+df[1:4]
+```
+
+```{r}
+library(dplyr)
+
+df <- starwars
+
+dim(df)
+```
+

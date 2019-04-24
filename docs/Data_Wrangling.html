@@ -326,7 +326,156 @@ $(document).ready(function () {
 </div>
 
 
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>df &lt;- starwars
 
+df$name</code></pre>
+<pre><code>##  [1] &quot;Luke Skywalker&quot;        &quot;C-3PO&quot;                
+##  [3] &quot;R2-D2&quot;                 &quot;Darth Vader&quot;          
+##  [5] &quot;Leia Organa&quot;           &quot;Owen Lars&quot;            
+##  [7] &quot;Beru Whitesun lars&quot;    &quot;R5-D4&quot;                
+##  [9] &quot;Biggs Darklighter&quot;     &quot;Obi-Wan Kenobi&quot;       
+## [11] &quot;Anakin Skywalker&quot;      &quot;Wilhuff Tarkin&quot;       
+## [13] &quot;Chewbacca&quot;             &quot;Han Solo&quot;             
+## [15] &quot;Greedo&quot;                &quot;Jabba Desilijic Tiure&quot;
+## [17] &quot;Wedge Antilles&quot;        &quot;Jek Tono Porkins&quot;     
+## [19] &quot;Yoda&quot;                  &quot;Palpatine&quot;            
+## [21] &quot;Boba Fett&quot;             &quot;IG-88&quot;                
+## [23] &quot;Bossk&quot;                 &quot;Lando Calrissian&quot;     
+## [25] &quot;Lobot&quot;                 &quot;Ackbar&quot;               
+## [27] &quot;Mon Mothma&quot;            &quot;Arvel Crynyd&quot;         
+## [29] &quot;Wicket Systri Warrick&quot; &quot;Nien Nunb&quot;            
+## [31] &quot;Qui-Gon Jinn&quot;          &quot;Nute Gunray&quot;          
+## [33] &quot;Finis Valorum&quot;         &quot;Jar Jar Binks&quot;        
+## [35] &quot;Roos Tarpals&quot;          &quot;Rugor Nass&quot;           
+## [37] &quot;Ric Olié&quot;              &quot;Watto&quot;                
+## [39] &quot;Sebulba&quot;               &quot;Quarsh Panaka&quot;        
+## [41] &quot;Shmi Skywalker&quot;        &quot;Darth Maul&quot;           
+## [43] &quot;Bib Fortuna&quot;           &quot;Ayla Secura&quot;          
+## [45] &quot;Dud Bolt&quot;              &quot;Gasgano&quot;              
+## [47] &quot;Ben Quadinaros&quot;        &quot;Mace Windu&quot;           
+## [49] &quot;Ki-Adi-Mundi&quot;          &quot;Kit Fisto&quot;            
+## [51] &quot;Eeth Koth&quot;             &quot;Adi Gallia&quot;           
+## [53] &quot;Saesee Tiin&quot;           &quot;Yarael Poof&quot;          
+## [55] &quot;Plo Koon&quot;              &quot;Mas Amedda&quot;           
+## [57] &quot;Gregar Typho&quot;          &quot;Cordé&quot;                
+## [59] &quot;Cliegg Lars&quot;           &quot;Poggle the Lesser&quot;    
+## [61] &quot;Luminara Unduli&quot;       &quot;Barriss Offee&quot;        
+## [63] &quot;Dormé&quot;                 &quot;Dooku&quot;                
+## [65] &quot;Bail Prestor Organa&quot;   &quot;Jango Fett&quot;           
+## [67] &quot;Zam Wesell&quot;            &quot;Dexter Jettster&quot;      
+## [69] &quot;Lama Su&quot;               &quot;Taun We&quot;              
+## [71] &quot;Jocasta Nu&quot;            &quot;Ratts Tyerell&quot;        
+## [73] &quot;R4-P17&quot;                &quot;Wat Tambor&quot;           
+## [75] &quot;San Hill&quot;              &quot;Shaak Ti&quot;             
+## [77] &quot;Grievous&quot;              &quot;Tarfful&quot;              
+## [79] &quot;Raymus Antilles&quot;       &quot;Sly Moore&quot;            
+## [81] &quot;Tion Medon&quot;            &quot;Finn&quot;                 
+## [83] &quot;Rey&quot;                   &quot;Poe Dameron&quot;          
+## [85] &quot;BB8&quot;                   &quot;Captain Phasma&quot;       
+## [87] &quot;Padmé Amidala&quot;</code></pre>
+<pre class="r"><code>library(dplyr)
+
+df &lt;- starwars
+
+df$height</code></pre>
+<pre><code>##  [1] 172 167  96 202 150 178 165  97 183 182 188 180 228 180 173 175 170
+## [18] 180  66 170 183 200 190 177 175 180 150  NA  88 160 193 191 170 196
+## [35] 224 206 183 137 112 183 163 175 180 178  94 122 163 188 198 196 171
+## [52] 184 188 264 188 196 185 157 183 183 170 166 165 193 191 183 168 198
+## [69] 229 213 167  79  96 193 191 178 216 234 188 178 206  NA  NA  NA  NA
+## [86]  NA 165</code></pre>
+<pre class="r"><code>library(dplyr)
+
+df &lt;- starwars
+
+df$gender</code></pre>
+<pre><code>##  [1] &quot;male&quot;          NA              NA              &quot;male&quot;         
+##  [5] &quot;female&quot;        &quot;male&quot;          &quot;female&quot;        NA             
+##  [9] &quot;male&quot;          &quot;male&quot;          &quot;male&quot;          &quot;male&quot;         
+## [13] &quot;male&quot;          &quot;male&quot;          &quot;male&quot;          &quot;hermaphrodite&quot;
+## [17] &quot;male&quot;          &quot;male&quot;          &quot;male&quot;          &quot;male&quot;         
+## [21] &quot;male&quot;          &quot;none&quot;          &quot;male&quot;          &quot;male&quot;         
+## [25] &quot;male&quot;          &quot;male&quot;          &quot;female&quot;        &quot;male&quot;         
+## [29] &quot;male&quot;          &quot;male&quot;          &quot;male&quot;          &quot;male&quot;         
+## [33] &quot;male&quot;          &quot;male&quot;          &quot;male&quot;          &quot;male&quot;         
+## [37] &quot;male&quot;          &quot;male&quot;          &quot;male&quot;          &quot;male&quot;         
+## [41] &quot;female&quot;        &quot;male&quot;          &quot;male&quot;          &quot;female&quot;       
+## [45] &quot;male&quot;          &quot;male&quot;          &quot;male&quot;          &quot;male&quot;         
+## [49] &quot;male&quot;          &quot;male&quot;          &quot;male&quot;          &quot;female&quot;       
+## [53] &quot;male&quot;          &quot;male&quot;          &quot;male&quot;          &quot;male&quot;         
+## [57] &quot;male&quot;          &quot;female&quot;        &quot;male&quot;          &quot;male&quot;         
+## [61] &quot;female&quot;        &quot;female&quot;        &quot;female&quot;        &quot;male&quot;         
+## [65] &quot;male&quot;          &quot;male&quot;          &quot;female&quot;        &quot;male&quot;         
+## [69] &quot;male&quot;          &quot;female&quot;        &quot;female&quot;        &quot;male&quot;         
+## [73] &quot;female&quot;        &quot;male&quot;          &quot;male&quot;          &quot;female&quot;       
+## [77] &quot;male&quot;          &quot;male&quot;          &quot;male&quot;          &quot;female&quot;       
+## [81] &quot;male&quot;          &quot;male&quot;          &quot;female&quot;        &quot;male&quot;         
+## [85] &quot;none&quot;          &quot;female&quot;        &quot;female&quot;</code></pre>
+<pre class="r"><code>library(dplyr)
+
+df &lt;- starwars
+
+df[1,]</code></pre>
+<pre><code>## # A tibble: 1 x 13
+##   name  height  mass hair_color skin_color eye_color birth_year gender
+##   &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; 
+## 1 Luke~    172    77 blond      fair       blue              19 male  
+## # ... with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<pre class="r"><code>library(dplyr)
+
+df &lt;- starwars
+
+df[ ,4]</code></pre>
+<pre><code>## # A tibble: 87 x 1
+##    hair_color   
+##    &lt;chr&gt;        
+##  1 blond        
+##  2 &lt;NA&gt;         
+##  3 &lt;NA&gt;         
+##  4 none         
+##  5 brown        
+##  6 brown, grey  
+##  7 brown        
+##  8 &lt;NA&gt;         
+##  9 black        
+## 10 auburn, white
+## # ... with 77 more rows</code></pre>
+<pre class="r"><code>library(dplyr)
+
+df &lt;- starwars
+
+df[1:4]</code></pre>
+<pre><code>## # A tibble: 87 x 4
+##    name               height  mass hair_color   
+##    &lt;chr&gt;               &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;        
+##  1 Luke Skywalker        172    77 blond        
+##  2 C-3PO                 167    75 &lt;NA&gt;         
+##  3 R2-D2                  96    32 &lt;NA&gt;         
+##  4 Darth Vader           202   136 none         
+##  5 Leia Organa           150    49 brown        
+##  6 Owen Lars             178   120 brown, grey  
+##  7 Beru Whitesun lars    165    75 brown        
+##  8 R5-D4                  97    32 &lt;NA&gt;         
+##  9 Biggs Darklighter     183    84 black        
+## 10 Obi-Wan Kenobi        182    77 auburn, white
+## # ... with 77 more rows</code></pre>
+<pre class="r"><code>library(dplyr)
+
+df &lt;- starwars
+
+dim(df)</code></pre>
+<pre><code>## [1] 87 13</code></pre>
 
 
 

@@ -395,7 +395,7 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 <li><p>matrix()</p></li>
 <li><p>factor()</p></li>
 <li><p>rbind()</p></li>
-<li><p>cbind()</p></li>
+<li><p>cbind() This funtion</p></li>
 </ol>
 </div>
 <div id="slicing-and-extracting-data-indexing-vectors" class="section level2">
@@ -416,7 +416,41 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 </div>
 <div id="variable-information" class="section level2">
 <h2>Variable information</h2>
-<p>is.na(x) is.null(x) is.data.frame(x) is.numeric(x) is.character(x) length(x) dim(x) dimnames(x) nrow(x) ncol(x) class() attributes()</p>
+<p>1.is.na(x) 2.is.null(x) 3.is.data.frame(x) 4.is.numeric(x) 5.is.character(x) 6.length(x) 7.dim(x) This funtion provides the number of rows and columns in a data frame without the data</p>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>df &lt;- starwars
+
+dim(df)</code></pre>
+<pre><code>## [1] 87 13</code></pre>
+<p>8.dimnames(x) This function lists the names of the categories in a data frame</p>
+<pre class="r"><code>library(dplyr)
+
+df &lt;- starwars
+
+dimnames(df)</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot; &quot;11&quot; &quot;12&quot; &quot;13&quot; &quot;14&quot;
+## [15] &quot;15&quot; &quot;16&quot; &quot;17&quot; &quot;18&quot; &quot;19&quot; &quot;20&quot; &quot;21&quot; &quot;22&quot; &quot;23&quot; &quot;24&quot; &quot;25&quot; &quot;26&quot; &quot;27&quot; &quot;28&quot;
+## [29] &quot;29&quot; &quot;30&quot; &quot;31&quot; &quot;32&quot; &quot;33&quot; &quot;34&quot; &quot;35&quot; &quot;36&quot; &quot;37&quot; &quot;38&quot; &quot;39&quot; &quot;40&quot; &quot;41&quot; &quot;42&quot;
+## [43] &quot;43&quot; &quot;44&quot; &quot;45&quot; &quot;46&quot; &quot;47&quot; &quot;48&quot; &quot;49&quot; &quot;50&quot; &quot;51&quot; &quot;52&quot; &quot;53&quot; &quot;54&quot; &quot;55&quot; &quot;56&quot;
+## [57] &quot;57&quot; &quot;58&quot; &quot;59&quot; &quot;60&quot; &quot;61&quot; &quot;62&quot; &quot;63&quot; &quot;64&quot; &quot;65&quot; &quot;66&quot; &quot;67&quot; &quot;68&quot; &quot;69&quot; &quot;70&quot;
+## [71] &quot;71&quot; &quot;72&quot; &quot;73&quot; &quot;74&quot; &quot;75&quot; &quot;76&quot; &quot;77&quot; &quot;78&quot; &quot;79&quot; &quot;80&quot; &quot;81&quot; &quot;82&quot; &quot;83&quot; &quot;84&quot;
+## [85] &quot;85&quot; &quot;86&quot; &quot;87&quot;
+## 
+## [[2]]
+##  [1] &quot;name&quot;       &quot;height&quot;     &quot;mass&quot;       &quot;hair_color&quot; &quot;skin_color&quot;
+##  [6] &quot;eye_color&quot;  &quot;birth_year&quot; &quot;gender&quot;     &quot;homeworld&quot;  &quot;species&quot;   
+## [11] &quot;films&quot;      &quot;vehicles&quot;   &quot;starships&quot;</code></pre>
+<p>9.nrow(x) 10.ncol(x) 11.class() 12.attributes()</p>
 </div>
 <div id="data-selection-and-manipulation" class="section level2">
 <h2>Data selection and manipulation</h2>

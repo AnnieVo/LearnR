@@ -32,6 +32,9 @@ ui <- fluidPage(
    )
 )
 
+
+
+
 # Define server logic required to draw a histogram
 server <- function(input, output) {
    
@@ -132,6 +135,7 @@ a <- "brooklyn" #add data sets, packages etc. above ui and then match with code 
 
 library(shiny)
 
+
 # USER INTERFACE
 ui <- fluidPage(
   sidebarLayout(
@@ -172,6 +176,4 @@ server <- function(input, output) {
 }
 
 # Run the application 
-shinyApp(ui = ui, server = server)
-
 

@@ -90,8 +90,19 @@ data.frame(1, 2, 3, 5)
 8. factor()
 
 9. rbind()
+This function allows you to bind a new row to an existing data frame
+```{r}
+df <- rbind(df,
+          random_number=runif(dim(df)[1],0,1))
+```
 
 10. cbind()
+This funtion allows you to bind a new column to an existing data frame
+```{r}
+df <- cbind(df,
+          random_number=runif(dim(df)[1],0,1))
+```
+
 
 ##Slicing and extracting data indexing vectors
 x[n] nth element
@@ -127,18 +138,34 @@ as.logical(x)
 as.character(x)
 
 ##Variable information
-is.na(x)
-is.null(x)
-is.data.frame(x)
-is.numeric(x)
-is.character(x)
-length(x)
-dim(x)
-dimnames(x)
-nrow(x)
-ncol(x)
-class()
-attributes()
+1.is.na(x)
+2.is.null(x)
+3.is.data.frame(x)
+4.is.numeric(x)
+5.is.character(x)
+6.length(x)
+7.dim(x)
+This funtion provides the number of rows and columns in a data frame without the data
+```{r}
+library(dplyr)
+
+df <- starwars
+
+dim(df)
+```
+8.dimnames(x)
+This function lists the names of the categories in a data frame
+```{r}
+library(dplyr)
+
+df <- starwars
+
+dimnames(df)
+```
+9.nrow(x)
+10.ncol(x)
+11.class()
+12.attributes()
 
 ##Data selection and manipulation
 which.max()
