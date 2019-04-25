@@ -9,19 +9,56 @@ output: html_document
 
 ##General bits
 1. help(topic)
+This searches the R help desk and retrieves information about what you are searching for.
+```{r}
+help("summary.aov") #provides a description of this function and general directions on how to use it
+```
+
 
 2. ?topic
+This function provides information about how particular pieces of syntax work. 
+```{r}
+?topic <- data.frame
+```
+
 
 3. ls()
+Not exactly sure what this function is doing but it appears to have created 2 lists based on previously existing values in the environment.
+```{r}
+ls(1,2)
+
+```
+
 
 4. dir()
+This lists the names of each file in the R project.
+```{r}
+dir()
+```
+
 
 5. list.files()
+This function lists all the names of each file in a given R project.
+```{r}
+list.files()
+```
+
 
 ##Input and output
 1. save()
+This saves an R object to a file.
+```{r}
+x <- 1
+save("x", file = "testfile.txt")
+```
+
 
 2. load()
+This loads saved data.
+```{r}
+load(file = "testfile.txt")
+```
+
 
 3. data()
 This function allows you to search for pre-made data sets in r
@@ -48,8 +85,15 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 ```
 
 5. read.table()
+This reads a particular table and creates a data frame.
+```{r}
+read.table(file = "testfile.txt")
+```
+
 
 6. read.csv()
+This function also read a particular table and creates a data frame.
+
 
 7. scan()
 
@@ -68,13 +112,31 @@ print(data.frame())
 ##Data Creation
 1. c()
 This function is used to combine elements (factors in a vectore for example)
+```{r}
+c(1,2,3,4,5)
+```
 
 
 2. from:to (where from and to are replaced with numbers, e.g. 1:10)
+This lists all the numbers in a specified range.
+```{r}
+1:10
+```
+
 
 3. seq()
+Not exactly sure what is happening here but it appears that this function is using the first two numbers to help derive the third.
+```{r}
+seq(2,10,7)
+```
+
 
 4. rep()
+This function replicates the first number the number of times that is designated in the second space
+```{r}
+rep(1,10)
+```
+
 
 5. data.frame()
 This allows one to enter specific groups of data values
@@ -84,6 +146,11 @@ data.frame(1, 2, 3, 5)
 ```
 
 6. list()
+This provides a numbered list for all objects in a set.
+```{r}
+list(2,6,1,3,8)
+```
+
 
 7. matrix()
 
@@ -168,38 +235,98 @@ dimnames(df)
 12.attributes()
 
 ##Data selection and manipulation
-which.max()
-which.min()
-which()
-sort()
-unique()
-table()
-sample()
+1.which.max()
+2.which.min()
+3.which()
+4.sort()
+5.unique()
+6.table()
+7.sample()
 
 ##Math
-max()
-This sets the maximum value included in a data set (and graph)
+1.max()
+This sets the maximum value included in a data set.
+```{r}
+x <- c(1,2,3,4,5,10)
+max(x)
+```
 
-min()
-This set the minimum value included in a data set (and graph)
 
-range()
-This determines the range of numbers considered in a graph
+2.min()
+This set the minimum value included in a data set.
+```{r}
+x <- c(1,10,20,100)
+min(x)
+```
 
-sum()
-This function adds all the numbers in a given set
 
-mean()
-Creates the mean of a given set of number values
+3.range()
+This determines the range of numbers considered in a set.
+```{r}
+x <- c(1, 10, 20, 40, 100)
+range(x)
+```
 
-median()
-calculates the median of a set of numbers
 
-var()
-sd()
-cor()
-round()
-abs()
+4.sum()
+This function adds all the numbers in a given set.
+```{r}
+x <- c(1, 10, 20, 40, 100)
+sum(x)
+
+```
+
+
+5.mean()
+Creates the mean of a given set of number values.
+```{r}
+x <- c(1, 10, 20, 40, 100)
+mean(x)
+```
+
+
+6.median()
+calculates the median of a set of numbers.
+```{r}
+x <- c(1, 10, 20, 40,  100)
+median(x)
+```
+
+
+7.var()
+This calculates the variance of a set of values.
+```{r}
+x <- c(1, 10, 20, 40, 100)
+var(x)
+```
+
+8.sd()
+This calculates the standard deviation of a set of values.
+```{r}
+x <- c(1, 10, 20, 40, 100)
+sd(x)
+```
+
+9.cor()
+This calculates the correlation between groups of data.
+```{r}
+x <- c(1, 10, 20, 40, 100)
+y <- c(50, 60, 100, 200, 300)
+cor(x,y)
+```
+
+10.round()
+This rounds a decimal to a specified number of decimals.
+```{r}
+round(5.4567,1)
+```
+
+11.abs()
+This takes the absolute value of a given number.
+```{r}
+abs(-20)
+```
+
 
 ##Matrices
 t()
@@ -220,14 +347,28 @@ toupper
 
 ##Plotting
 hist()
-This function creates a histogram graph of a given set of data
+This function creates a histogram graph of a given set of data.
+```{r}
+x <- c(1,20,50)
+hist(x)
+```
+
 
 plot()
-This function creates a plot graph of a given set of data
+This function creates a plot graph of a given set of data.
+```{r}
+x <- cbind(c(1,2,3,4),c(10,20,30,40))
+plot(x)
+```
+
 
 ##Distributions
 rnorm()
-This function inserts a normal distribution
+This function inserts a normal distribution.
+```{r}
+rnorm(100, mean = 50, sd=2)
+```
+
 
 runif()
 
@@ -242,9 +383,24 @@ Explain what break() does, show you can use it
 ##Installing some packages
 Use the packages tab in R-studio to install these packages. You will need to be connected to the internet when you do this. If you are installing on your laptop, or on R-studio Cloud, then these packages will not need to installed again.
 
-ggplot2
-dplyr
-shiny
-data.table
-reshape2
-stringr
+1.ggplot2
+```{r}
+library(ggplot2)
+```
+
+2.dplyr
+```{r}
+library(dplyr)
+```
+
+3.shiny
+
+4.data.table
+```{r}
+library(data.table)
+```
+
+5.reshape2
+
+
+6.stringr
