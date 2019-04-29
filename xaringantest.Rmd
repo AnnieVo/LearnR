@@ -1,0 +1,112 @@
+---
+title: "Presentation Ninja"
+subtitle: "⚔<br/>with xaringan"
+author: "Yihui Xie"
+date: "2016/12/12 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [default, metropolis, metropolis-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+# a header
+
+Try something
+
+---
+
+next slide
+
+---
+
+##First thing
+
+---
+
+##Second thing
+
+-blah
+
+-blah
+
+        -sub-header
+
+---
+# add R code blocks
+
+This R code samples 10 numbers from a normal distribution and then prints the result
+
+```{r}
+a <- rnorm(10,0,1)
+print(a)
+```
+
+# figures automatically show up
+
+```{r, echo=FALSE,fig.align='center'} 
+hist(rnorm(1000,0,1))
+```
+
+# How to size a figure
+-the echo=false function hides the code, fig.align= aligns the figure, fig.height= will size the figure in inches, out.height= will size the figure by pixels ex. "100px"" or by percentage "25%", out.width= will size the figure of width
+---
+
+# How to add an external image
+
+```{r}
+
+knitr::include_graphics("dog.jpg")
+```
+
+---
+
+#how to create colums
+
+.pull-left[
+Text in a left column
+
+
+-bullets 
+
+
+-bullets]
+
+.pull-right[
+
+```{r}
+a <- rnorm(10,0,1)
+print(a)
+```
+
+
+
+]
+
+---
+
+#Incrementally display things
+
+##show this first
+
+--
+
+##show this second
+
+--
+
+##then this
+
+---
+
+#You can display a math expression 
+$\text{mean}=\fac{\sum}$

@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MyLabJournal</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Journal.html">Journal</a>
+</li>
+<li>
+  <a href="Morepractice.html">More Practice</a>
+</li>
+<li>
+  <a href="Dictionary.html">Dictionary</a>
+</li>
+<li>
+  <a href="Class_Notes.html">Class Notes</a>
+</li>
+<li>
+  <a href="ggplotgraphs.html">ggplot Graphs</a>
+</li>
+<li>
+  <a href="Data_Wrangling.html">Data Wrangling</a>
+</li>
+<li>
+  <a href="Statistics.html">Statistics</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="flanker-task" class="section level2">
+<h2>Flanker task</h2>
+<p>In a flanker task, participants identify a central stimulus (as quickly and accurately) as possible, while ignoring distracting stimuli presented on the left or right of the central stimulus (the flankers).</p>
+<p>For example, the stimulus could be “HHH”, and the correct response would be H. This is called a compatible (or congruent) stimulus because the flanking Hs are the same as the central stimulus. Alternatively, the stimulus could be “HSH”, and the correct resposne would be S. This is called an incompatible (or incongruent) stimulus because the flanking Hs are different from the central stimulus.</p>
+<p>The data for this assignment come from a flanker task where participants responded to many flanker stimuli over several trials.</p>
+</div>
+<div id="load-the-data-and-libraries-you-will-use" class="section level2">
+<h2>Load the data and libraries you will use</h2>
+<p>I will help you with some sample code that compiles all of the text files in a single long format data frame.</p>
+<p>The data is contained in this .zip file: <a href="https://crumplab.github.io/psyc7709/Presentations/FlankerData.zip">FlankerData.zip</a></p>
+<p>The code chunk below assumes that you have placed the folder FlankerData into your R project folder.</p>
+<pre class="r"><code>library(data.table)
+library(dplyr)
+library(ggplot2)
+
+
+# get the file names
+file_names &lt;- list.files(path=&quot;FlankerData&quot;)
+
+# create headers for each column
+the_headers &lt;- c(&quot;stimulus&quot;,&quot;congruency&quot;,&quot;proportion&quot;,
+                 &quot;block&quot;,&quot;condition&quot;,&quot;dualtask&quot;,&quot;unknown&quot;,
+                 &quot;stimulus_onset&quot;,&quot;response_time&quot;,&quot;response&quot;,&quot;subject&quot;)
+# Load data
+# create empty dataframe
+all_data&lt;-data.frame()
+
+# loop to add each file to the dataframe
+for(i in file_names){
+  one_subject &lt;- fread(paste(&quot;FlankerData/&quot;,i, sep=&quot;&quot;))
+  names(one_subject) &lt;- the_headers
+  one_subject$subject &lt;- rep(i,dim(one_subject)[1])
+  one_subject &lt;- cbind(one_subject, trial= 1:dim(one_subject)[1])
+  all_data &lt;- rbind(all_data,one_subject)
+}</code></pre>
+</div>
+<div id="pre-processing" class="section level2">
+<h2>Pre-processing</h2>
+<div id="get-accuracy-for-each-trial" class="section level3">
+<h3>get accuracy for each trial</h3>
+<p>A correct response occurs when the letter in the response column is the same as the letter in the middle position of item in the stimulus column. Create an accuracy column that codes whether the response was correct or incorrect on each trial (coding can be TRUE/FALSE, 0/1, or some other coding scheme that identifies correct vs incorrect)</p>
+<pre class="r"><code>library(dplyr)
+
+correct_answer &lt;- c()
+for (i in 1:4224) {
+  correct_answer[i] = strsplit(all_data$stimulus, split = &quot;&quot;)[[i]][2]
+}
+
+all_data &lt;- all_data %&gt;%
+  mutate(upper_answer = toupper(all_data$response),
+         correct_answer = correct_answer,
+         accuracy= upper_answer == correct_answer)</code></pre>
+</div>
+<div id="get-reaction-time-on-each-trial" class="section level3">
+<h3>Get Reaction time on each trial</h3>
+<p>The stimulus_onset column gives a computer timestamp in milliseconds indicating when the stimulus was presented. The response_time column is a timestamp in milliseconds for the response. The difference between the two (response_time - stimulus_onset) is the reaction time in milliseconds. Add a column that calculates the reaction time on each trial.</p>
+<p>**<a href="tip:**" class="uri">tip:**</a> notice that the numbers in response_time and stimulus_onset have the class integer64. Unfortunately, ggplot does not play nice with integers in this format. you will need to make sure your RT column is in the class integer or numeric.</p>
+<pre class="r"><code>library(dplyr)
+
+all_data &lt;- all_data %&gt;%
+  mutate(reaction_time = as.integer(response_time - stimulus_onset))</code></pre>
+</div>
+</div>
+<div id="checks" class="section level2">
+<h2>Checks</h2>
+<p>Check how many trials each subject completed in the congruent and incongruent conditions, the mean accuracy for each subject in each congruency condition, and the mean RT for each subject in each congruency condition.</p>
+<pre class="r"><code>library(dplyr)
+
+subject_check &lt;- all_data %&gt;%
+                  mutate(subject = as.factor(subject),
+                         congruency = as.factor(congruency)) %&gt;%
+                  group_by(subject,congruency) %&gt;%
+                  dplyr::summarise(total_trials = length(reaction_time),
+                            mean_reaction_time = mean(reaction_time),
+                            mean_accuracy = mean(accuracy))
+
+knitr::kable(subject_check)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">subject</th>
+<th align="left">congruency</th>
+<th align="right">total_trials</th>
+<th align="right">mean_reaction_time</th>
+<th align="right">mean_accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9166667</td>
+</tr>
+<tr class="even">
+<td align="left">1.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9270833</td>
+</tr>
+<tr class="odd">
+<td align="left">10.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9479167</td>
+</tr>
+<tr class="even">
+<td align="left">10.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9166667</td>
+</tr>
+<tr class="odd">
+<td align="left">11.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9375000</td>
+</tr>
+<tr class="even">
+<td align="left">11.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9583333</td>
+</tr>
+<tr class="odd">
+<td align="left">12.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9270833</td>
+</tr>
+<tr class="even">
+<td align="left">12.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.0833333</td>
+</tr>
+<tr class="odd">
+<td align="left">13.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.8958333</td>
+</tr>
+<tr class="even">
+<td align="left">13.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.8229167</td>
+</tr>
+<tr class="odd">
+<td align="left">14.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9687500</td>
+</tr>
+<tr class="even">
+<td align="left">14.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9375000</td>
+</tr>
+<tr class="odd">
+<td align="left">15.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9895833</td>
+</tr>
+<tr class="even">
+<td align="left">15.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9791667</td>
+</tr>
+<tr class="odd">
+<td align="left">16.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9583333</td>
+</tr>
+<tr class="even">
+<td align="left">16.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9687500</td>
+</tr>
+<tr class="odd">
+<td align="left">17.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9687500</td>
+</tr>
+<tr class="even">
+<td align="left">17.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9479167</td>
+</tr>
+<tr class="odd">
+<td align="left">18.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">1.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">18.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9583333</td>
+</tr>
+<tr class="odd">
+<td align="left">19.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9791667</td>
+</tr>
+<tr class="even">
+<td align="left">19.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9895833</td>
+</tr>
+<tr class="odd">
+<td align="left">2.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">1.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">2.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9583333</td>
+</tr>
+<tr class="odd">
+<td align="left">20.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9895833</td>
+</tr>
+<tr class="even">
+<td align="left">20.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">1.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">21.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">1.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">21.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">1.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">22.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9687500</td>
+</tr>
+<tr class="even">
+<td align="left">22.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9479167</td>
+</tr>
+<tr class="odd">
+<td align="left">3.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9895833</td>
+</tr>
+<tr class="even">
+<td align="left">3.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9687500</td>
+</tr>
+<tr class="odd">
+<td align="left">4.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9895833</td>
+</tr>
+<tr class="even">
+<td align="left">4.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9791667</td>
+</tr>
+<tr class="odd">
+<td align="left">5.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9791667</td>
+</tr>
+<tr class="even">
+<td align="left">5.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9687500</td>
+</tr>
+<tr class="odd">
+<td align="left">6.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9687500</td>
+</tr>
+<tr class="even">
+<td align="left">6.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9687500</td>
+</tr>
+<tr class="odd">
+<td align="left">7.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9895833</td>
+</tr>
+<tr class="even">
+<td align="left">7.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">1.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">8.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.8645833</td>
+</tr>
+<tr class="even">
+<td align="left">8.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9895833</td>
+</tr>
+<tr class="odd">
+<td align="left">9.txt</td>
+<td align="left">C</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9687500</td>
+</tr>
+<tr class="even">
+<td align="left">9.txt</td>
+<td align="left">I</td>
+<td align="right">96</td>
+<td align="right">0</td>
+<td align="right">0.9583333</td>
+</tr>
+<tr class="odd">
+<td align="left">### Exclus</td>
+<td align="left">ion</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+<p>It is common to exclude Reaction times that are very slow. There are many methods and procedures for excluding outlying reaction times. To keep it simple, exclude all RTs that are longer than 2000 ms</p>
+<pre class="r"><code>library(dplyr)
+
+included_data &lt;- all_data %&gt;%
+  filter(reaction_time &lt;= 2000)</code></pre>
+</div>
+<div id="analysis" class="section level2">
+<h2>Analysis</h2>
+<div id="reaction-time-analysis" class="section level3">
+<h3>Reaction Time analysis</h3>
+<ol style="list-style-type: decimal">
+<li>Get the individual subject mean reaction times for <strong>correct</strong> congruent and incongruent trials.</li>
+</ol>
+<pre class="r"><code>library(dplyr)
+
+reaction_time_correct_trials &lt;- included_data %&gt;%
+  filter(accuracy == TRUE) %&gt;%
+  group_by(subject, congruency) %&gt;%
+  dplyr::summarise(mean_reaction = mean(reaction_time))
+
+knitr::kable(reaction_time_correct_trials)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">subject</th>
+<th align="left">congruency</th>
+<th align="right">mean_reaction</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">1.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">10.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">10.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">11.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">11.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">12.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">12.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">13.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">13.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">14.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">14.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">15.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">15.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">16.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">16.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">17.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">17.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">18.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">18.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">19.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">19.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">2.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">2.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">20.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">20.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">21.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">21.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">22.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">22.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">3.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">3.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">4.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">4.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">5.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">5.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">6.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">6.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">7.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">7.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">8.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">8.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">9.txt</td>
+<td align="left">C</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">9.txt</td>
+<td align="left">I</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">2. Get the</td>
+<td align="left">overall mean</td>
+<td align="right">RTs and SEMs (standard errors of the mean) for the congruent and incongruent condition. Make a table and graph.</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>library(dplyr)
+
+descriptives_by_group &lt;- reaction_time_correct_trials %&gt;%
+  group_by(congruency) %&gt;%
+  dplyr::summarise(mean_reaction_time = mean(mean_reaction),
+                   standard_error = sd(mean_reaction)/(sqrt(length(mean_reaction))))
+
+knitr::kable(descriptives_by_group)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">congruency</th>
+<th align="right">mean_reaction_time</th>
+<th align="right">standard_error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">C</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">I</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">3. Compute th</td>
+<td align="right">e flanker effect for</td>
+<td align="right">each subject, taking the difference between their mean incongruent and congruent RT. Then plot the mean flanker effect, along with the SEM of the mean flanker effect</td>
+</tr>
+</tbody>
+</table>
+<p>**<a href="tip:**" class="uri">tip:**</a> Not all problems have an easy solution in dplyr, this is one them. You may have an easier time using logical indexing of the dataframe to solve this part.</p>
+<pre class="r"><code>library(dplyr)
+
+reaction_times &lt;- included_data %&gt;%
+  group_by(subject, congruency) %&gt;%
+  dplyr::summarise(mean_reaction = mean(reaction_time))
+
+congruent_reaction &lt;- reaction_times %&gt;%
+  filter(congruency==&quot;C&quot;)
+incrongruent_reaction &lt;- reaction_times %&gt;%
+  filter(congruency==&quot;I&quot;)
+
+flanker &lt;- incrongruent_reaction$mean_reaction - congruent_reaction$mean_reaction
+flanker_mean &lt;- mean(flanker)
+flanker_std_error &lt;- sd(flanker)/(sqrt(length(flanker)))
+flanker_df &lt;- data.frame(flanker_mean = flanker_mean,
+                         standard_error = flanker_std_error,
+                         x = &quot;Flanker Effect&quot;)
+
+library(ggplot2)
+
+ggplot(flanker_df, aes(x=x, y=flanker_mean))+
+  geom_bar(stat=&quot;identity&quot;)+
+  theme_classic(base_size=12)+
+  ylab(&quot;Mean Flanker Effect&quot;)+
+  geom_errorbar(aes(ymin=flanker_mean-flanker_std_error,
+                    ymax=flanker_mean+flanker_std_error),
+                position=position_dodge(width=0.9),
+                width=.1,
+                color=&quot;black&quot;)</code></pre>
+<p><img src="DataWrangleFlanker_student_files/figure-html/unnamed-chunk-8-1.png" width="672" /> ### Exploratory analysis</p>
+<p>Multiple questions may often be asked of data, especially questions that may not have been of original interest to the researchers.</p>
+<p>In flanker experiments, like this one, it is well known that the flanker effect is modulated by the nature of the previous trial. Specifically, the flanker effect on trial n (the current trial), is larger when the previous trial (trial n-1) involved a congruent item, compared to an incongruent item.</p>
+<p>Transform the data to conduct a sequence analysis. The dataframe should already include a factor (column) for the congruency level of trial n. Make another column that codes for the congruency level of trial n-1 (the previous trial). This creates a 2x2 design with trial n congruency x trial n-1 congruency.</p>
+<p>First get teh subject means for each condition, then create a table and plot for teh overall means and SEMs in each condition. This should include:</p>
+<ol style="list-style-type: decimal">
+<li>trial n congruent : trial n-1 congruent</li>
+<li>trial n incongruent : trial n-1 congruent</li>
+<li>trial n congruent : trial n-1 incongruent</li>
+<li>trial n incongruent : trial n-1 incongruent</li>
+</ol>
+<p>**<a href="tip:**" class="uri">tip:**</a> be careful, note that the first trial in each experiment can not be included, because it had no preceding trial</p>
+<pre class="r"><code>prev_congruency &lt;- 0
+
+for (i in 2:length(included_data$subject)) {
+  if (included_data$subject[i]==included_data$subject[i-1]) {
+    prev_congruency[i] &lt;- included_data$congruency[i-1]
+  }
+  else {
+    prev_congruency[i] &lt;- 0
+  }
+}
+
+prev_analysis &lt;- included_data %&gt;%
+  mutate(prev_congruency = prev_congruency) %&gt;%
+  filter(prev_congruency != 0, accuracy == TRUE) %&gt;%
+  group_by(subject,congruency,prev_congruency) %&gt;%
+  dplyr::summarise(mean_reaction = mean(reaction_time))
+
+prev_analysis &lt;- prev_analysis %&gt;%
+  group_by(congruency,prev_congruency) %&gt;%
+  dplyr::summarise(mean_react = mean(mean_reaction),
+                   standard_error = sd(mean_reaction)/(sqrt(length(mean_reaction))))
+
+knitr::kable(prev_analysis)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">congruency</th>
+<th align="left">prev_congruency</th>
+<th align="right">mean_react</th>
+<th align="right">standard_error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">C</td>
+<td align="left">C</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">C</td>
+<td align="left">I</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">I</td>
+<td align="left">C</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">I</td>
+<td align="left">I</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

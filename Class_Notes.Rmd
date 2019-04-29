@@ -429,3 +429,27 @@ To speead up code, place rprof in the beginning and end of the code.
 a<-data.frame(a=c(0,0))
 b=c(0,0)
 
+#April 29, 2019
+
+How to use Xaringan
+
+"The Definitive Guide to R Markdown" by Yihui Xie
+
+Xie created knitr and xaringan
+
+1. Copy the template
+  -Open a new R Markdown
+  -Open templates
+  -Select "Ninja Presentation"
+2. The format use: css: [default, metropolis, metropolis-fonts] 
+  -## sign will put words into a dark banner
+  -# sign will create a first level header (title in the middle of a page)
+  - Use --- to create a new slide
+  -for bullet points, provide a space between each line
+  -use - to create bullet point
+3. For format
+Use class: inverse, middle, center #order doesn't matter with these format commands. Commands can be listed alone on each slide 
+4. To bold text, **Bold**
+5. You can add an image by using knitr::include_graphics("")
+
+

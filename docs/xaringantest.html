@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Presentation Ninja</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Yihui Xie" />
+    <link href="site_libs/remark-css/default.css" rel="stylesheet" />
+    <link href="site_libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="site_libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Presentation Ninja
+## ⚔<br/>with xaringan
+### Yihui Xie
+### 2016/12/12 (updated: 2019-04-29)
+
+---
+
+
+
+
+
+
+# a header
+
+Try something
+
+---
+
+next slide
+
+---
+
+##First thing
+
+---
+
+##Second thing
+
+-blah
+
+-blah
+
+        -sub-header
+
+---
+# add R code blocks
+
+This R code samples 10 numbers from a normal distribution and then prints the result
+
+
+```r
+a &lt;- rnorm(10,0,1)
+print(a)
+```
+
+```
+##  [1]  0.25063295 -0.09204675  1.18117735 -1.17017403 -0.80904805
+##  [6]  0.81113985 -0.37228364 -0.83564615 -0.74283725  0.26825665
+```
+
+# figures automatically show up
+
+&lt;img src="xaringantest_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+
+# How to size a figure
+-the echo=false function hides the code, fig.align= aligns the figure, fig.height= will size the figure in inches, out.height= will size the figure by pixels ex. "100px"" or by percentage "25%", out.width= will size the figure of width
+---
+
+# How to add an external image
+
+
+```r
+knitr::include_graphics("dog.jpg")
+```
+
+![](dog.jpg)&lt;!-- --&gt;
+
+---
+
+#how to create colums
+
+.pull-left[
+Text in a left column
+
+
+-bullets 
+
+
+-bullets]
+
+.pull-right[
+
+
+```r
+a &lt;- rnorm(10,0,1)
+print(a)
+```
+
+```
+##  [1]  1.04636791  1.86922197 -0.86964510  1.91821854  0.26721982
+##  [6]  2.60427706 -0.09362818 -0.94290456 -0.07868707 -0.69079447
+```
+
+
+
+]
+
+---
+
+#Incrementally display things
+
+##show this first
+
+--
+
+##show this second
+
+--
+
+##then this
+
+---
+
+#You can display a math expression 
+`\(\text{mean}=\fac{\sum}\)`
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
