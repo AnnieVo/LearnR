@@ -452,4 +452,15 @@ Use class: inverse, middle, center #order doesn't matter with these format comma
 4. To bold text, **Bold**
 5. You can add an image by using knitr::include_graphics("")
 
+#May 6, 2019
+
+Bookdown Package
+
+1. Search for "Bookdown demo"
+2. download the files from the demo
+3. download bookdown package
+4. You can knit an external file or create a tab on the site
+
+
+
 

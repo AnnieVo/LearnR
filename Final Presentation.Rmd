@@ -1,0 +1,35 @@
+---
+title: "Using knitr"
+subtitle: "A Brief Tutorial"
+author: "Annie Vo"
+date: "May 20, 2019"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: inverse, middle, center
+##What is knitr?
+
+It is an elegant, transparent engine for dynamic report generation with R
+
+---
+class: inverse, middle, center
+##
+
+
+---
+class: inverse, middle, center
+## What can it do?
+
+You can add an image by using knitr::include_graphics("")
+
+
+---
+class: inverse, middle, center
+## References
+
+#https://yihui.name/knitr/
