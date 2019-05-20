@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Annie" />
+
+<meta name="date" content="2019-05-20" />
+
+<title>Knitr Paper</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">MyLabJournal</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="Journal.html">Journal</a>
+</li>
+<li>
+  <a href="Morepractice.html">More Practice</a>
+</li>
+<li>
+  <a href="Dictionary.html">Dictionary</a>
+</li>
+<li>
+  <a href="Class_Notes.html">Class Notes</a>
+</li>
+<li>
+  <a href="ggplotgraphs.html">ggplot Graphs</a>
+</li>
+<li>
+  <a href="Data_Wrangling.html">Data Wrangling</a>
+</li>
+<li>
+  <a href="Statistics.html">Statistics</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Knitr Paper</h1>
+<h4 class="author"><em>Annie</em></h4>
+<h4 class="date"><em>May 20, 2019</em></h4>
+
+</div>
+
+
+<div id="knitr-basics" class="section level2">
+<h2>Knitr Basics</h2>
+</div>
+<div id="by-annie-vo" class="section level1">
+<h1>by Annie Vo</h1>
+<p>Knitr is a package that can generate dynamic web-based reports in R Markdown. R Markdown consists of three elements: YAML, text and code chunks. Knitr evaluates and then executes the code listed in each code chunk. Knitr then creates a new markdown file that includes the R code and its output. It is recommended to use Knitr in R Markdown in the R Studio program because its functions are built into the user interface. Knitr can be summoned in a code chunk in two ways,</p>
+<p>As with all other downloaded packages, Knitr can be used with the library function:</p>
+<pre class="{r]"><code>library(knitr) </code></pre>
+<p>Additionally, knitr has the ability to be used in this way:</p>
+<p>knitr::</p>
+</div>
+<div id="knit-button" class="section level1">
+<h1>“Knit” Button</h1>
+<p>It’s an abbreviated version of the Knitr function that applies to each individual code chunk. RStudio includes the “Knit” button that allows you to view your progress, code chunk by code chunk by rendering an instant preview of the code chunk output. This also automatically saves your progress and will indicate whether there are problems with the code in the code chunk.</p>
+</div>
+<div id="code-chunk-options" class="section level1">
+<h1>Code Chunk Options</h1>
+<p>Knitr works directly with R Markdown by executing all the code chunks in the file. It is of note that although code chunks do not need to be named, it may be useful to name them so that they are easy to locate if an error occurs. Each code chunk must have a unique name (if it is named). To name a code chunk, the name must be placed in the initial line of the code chunk. An unnamed code chunk looks like this,</p>
+<p>And a named code chunk looks like this,</p>
+<p>All code is then placed between the named (or unnamed) code line and the final three backticks like this,</p>
+<pre class="r"><code>x &lt;-rnorm(100)</code></pre>
+<p>Since an R Markdown document with knitr will often include several chunks of code, it may be useful to alter some of the code chunks to speed up processing time. Also, a code chunk can be altered to hide code or its output as well as other combinations of visibility. As with naming the code chunk, all other additional code chunk altering commands will be noted in the initial line. For example, echo=FALSE makes it so that the code of that chunk will not be shown in the final document while still displaying the output,</p>
+<p>Another command is to use results=”hide” to hide the results of the output while still displaying the code,</p>
+<p><code>{r chunk_name, results=”hide”</code></p>
+<p>There is also the option to use include=FALSE which will process the chunk without displaying the code nor its outputs in the final document,</p>
+<p>There are several other code chunk options that allow you to manipulate graphing data, add images, create animation, code in other languages and many more.</p>
+<div id="reproducibility-research" class="section level2">
+<h2>Reproducibility Research</h2>
+<p>When research is reproduced, it is important that all notes, graphs, methods and all other details are clearly listed to be performed accurately. Generally, the process of organizing these materials require accessing several different computing systems (software, graphs, animation etc.) and text. It can be tedious, difficult and riddled with mistakes to attempt to locate and organize these elements one by one. Knitr makes this process much easier by allowing the user to input text directly, access old text from outdated software, access data, graphs, html etc. and place all of these elements in one file. By using code in Knitr, pdfs, Word documents, slide presentations, web pages and other document formats that are used in collaborative science, different pieces of information can be organized in one file. Each line of code can be directly linked to the original source so that adjustments to content can be made easily and transparently. Knitr does the challenging work of processing other computing systems and interfaces to create a timeless, easy to read and interpret, output.</p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<p><a href="https://yihui.name/knitr/" class="uri">https://yihui.name/knitr/</a></p>
+<p><a href="https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html" class="uri">https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html</a></p>
+<p><a href="https://sachsmc.github.io/knit-git-markr-guide/knitr/knit.html" class="uri">https://sachsmc.github.io/knit-git-markr-guide/knitr/knit.html</a></p>
+<p><a href="https://en.m.wikipedia.org/wiki/Knitr" class="uri">https://en.m.wikipedia.org/wiki/Knitr</a></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

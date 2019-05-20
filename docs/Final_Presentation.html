@@ -1,26 +1,99 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Using Knitr</title>
+    <title>Using knitr</title>
     <meta charset="utf-8" />
     <meta name="author" content="Annie Vo" />
     <meta name="date" content="2019-05-20" />
-    <link href="site_libs/remark-css/default.css" rel="stylesheet" />
-    <link href="site_libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <link href="site_libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="site_libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Using Knitr
+# Using knitr
 ## A Brief Tutorial
 ### Annie Vo
 ### May 20, 2019
 
 ---
 
+class: inverse, middle, center
+##What is knitr?
 
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
+-It is a dynamic report generator
+
+-It is a package that can process several different document formats such as PDF's, Word documents, slide presentations and web pages
+
+      -It enables the integration of R code into Latex, Lyx, HTML and many others
+
+-Aids in reproducible research by integrating computing and reporting from several sources simulataneously
+
+
+---
+class: inverse, middle, center
+##How do you load it?
+
+-Download R Markdown from CRAN
+
+-library(knitr)
+
+-knitr::
+
+-"knit" button
+
+
+---
+class: inverse, middle, center
+## What can it do?
+
+#This is an example of knitr with Markdown
+
+
+```r
+knitr::include_graphics("docs.knit-logo.png")
+```
+
+![](docs.knit-logo.png)&lt;!-- --&gt;
+---
+
+The equivalent text in html
+
+
+```r
+knitr::include_graphics("html1.png")
+```
+
+![](html1.png)&lt;!-- --&gt;
+---
+
+And, the equivalent test in Latex
+
+
+```r
+knitr::include_graphics("tex1.png")
+```
+
+![](tex1.png)&lt;!-- --&gt;
+
+---
+class: inverse, middle, center
+
+##"Future proof"
+
+    -Can integrate data regardless of software version
+    -Access all notes, graphs, text, animation etc. in one place
+
+
+---
+class: inverse, middle, center
+## References
+
+#https://yihui.name/knitr/
+#https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
+#https://sachsmc.github.io/knit-git-markr-guide/knitr/knit.html
+#https://en.m.wikipedia.org/wiki/Knitr
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
