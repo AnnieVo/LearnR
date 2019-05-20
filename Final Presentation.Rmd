@@ -1,5 +1,5 @@
 ---
-title: "Using knitr"
+title: "Using Knitr"
 subtitle: "A Brief Tutorial"
 author: "Annie Vo"
 date: "May 20, 2019"
@@ -41,7 +41,7 @@ class: inverse, middle, center
 class: inverse, middle, center
 ## What can it do?
 
-#This is an example of knitr with Markdown
+#This is an example of Knitr with Markdown
 
 ```{r echo=FALSE}
 knitr::include_graphics("knitrex1.png")
