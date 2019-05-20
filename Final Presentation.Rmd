@@ -43,21 +43,21 @@ class: inverse, middle, center
 
 #This is an example of knitr with Markdown
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("knitrex1.png")
 ```
 ---
 
 The equivalent text in html
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("html1.png")
 ```
 ---
 
 And, the equivalent test in Latex
 
-```{r}
+```{r echo=FALSE}
 knitr::include_graphics("tex1.png")
 ```
 
@@ -77,6 +77,9 @@ class: inverse, middle, center
 ## References
 
 #https://yihui.name/knitr/
+
 #https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
+
 #https://sachsmc.github.io/knit-git-markr-guide/knitr/knit.html
+
 #https://en.m.wikipedia.org/wiki/Knitr
