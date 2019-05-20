@@ -47,6 +47,7 @@ class: inverse, middle, center
 knitr::include_graphics("knitrex1.png")
 ```
 ---
+class: inverse, middle, center
 
 The equivalent text in html
 
@@ -54,6 +55,7 @@ The equivalent text in html
 knitr::include_graphics("html1.png")
 ```
 ---
+class: inverse, middle, center
 
 And, the equivalent test in Latex
 
